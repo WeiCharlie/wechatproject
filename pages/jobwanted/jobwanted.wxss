@@ -1,0 +1,30 @@
+.viewH{
+  padding: 20rpx 10rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.viewV{
+   color: #999;
+  margin-left: 10px;
+  flex: 1;
+  float: left;
+  width: 70%;
+    
+}
+.item_img{
+ width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.textview{
+  width: 70%;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+   
+}

@@ -1,0 +1,105 @@
+/**index.wxss**/
+@import "../jobwanted/jobwanted.wxss";
+.slide-image{  
+    width: 100%;  
+}
+.navigator{
+   position: relative;
+  display: 1;
+  align-items: center;
+  border-bottom: 5px solid  #dadada;
+}
+.item_img{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+  border-radius: 20%;
+} 
+
+._head{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 4px;
+} 
+._head_title{
+  float: left;
+  width: 70%;
+  margin-left: 10px;
+  font-size: 16px;
+  
+}
+._head_price{
+  float: right;
+  margin-right: 10px;
+   width: 20%;
+  font-size: 12px;
+     color: #ff3333;
+}
+.middle{
+  display: flex;
+  position: relative;
+  height: 40px;
+   margin-bottom: 2px;
+  border-bottom: 1px dashed  #dadada;
+} 
+.middle_view{
+   margin-left: 10px;
+    position: relative;
+
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    
+}
+
+.weui_cell_hd{
+  display: inline-block;
+  margin-right: 5px;
+  line-height: 40px;
+  
+}
+.weui_cell_hd image{
+  width: 20rpx;
+  height: 20rpx;
+  align-items: center
+}
+.weui_cell_bd{
+  display: inline-block;
+}
+.weui_cell_bd_p{
+  font-size: 13px;
+  color: #939393;
+}
+.viewH{
+  padding: 5rpx 10rpx;
+}
+.bottom{
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.viewH_img{
+  width:78rpx;
+  height: 30rpx;
+  margin-left: 5px;
+}
+
+.bottom_textview{
+   font-size: 13px;
+}
+.bottom_textview1{
+   font-size: 13px;
+   width: 100%;
+   float: left;
+}
+.bottom_textview2{
+   font-size: 13px;
+   width: 100%;
+   position: relative;
+}

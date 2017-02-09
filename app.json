@@ -1,0 +1,49 @@
+{
+  "pages":[
+    
+    "pages/index/index",
+    "pages/logs/logs",
+     "pages/jobdatils/jobdatils",
+         "pages/aboutus/aboutus",
+    "pages/jobwanted/jobwanted",
+    "pages/myself/myself",
+    "pages/message/message",
+    "pages/joblist/joblist",
+    "pages/login/login"
+
+   
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+  ,
+  "tabBar": {
+    "color": "#a9b7b7",
+     "selectedColor": "#11cd6e",
+     "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/tabone.png",
+      "selectedIconPath": "images/tabone2.png"
+    },{
+"pagePath": "pages/jobwanted/jobwanted",
+      "text": "求职",
+      "iconPath": "images/tabtwo.png",
+      "selectedIconPath": "images/tabtwo2.png"
+    },{
+"pagePath": "pages/message/message",
+      "text": "消息",
+      "iconPath": "images/tabthree.png",
+      "selectedIconPath": "images/tabthree2.png"
+    },{
+"pagePath": "pages/myself/myself",
+      "text": "个人",
+      "iconPath": "images/tabfour.png",
+      "selectedIconPath": "images/tabfour2.png"
+    }]
+  }
+}

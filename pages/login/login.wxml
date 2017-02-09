@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="setInfoimage" class="userinfo">
+  
+    <image wx:if="{{image!=null}}" class="userinfo-avatar"  src="{{image}}" background-size="cover" ></image>
+    <image wx:else  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname" url="/pages/two/two">{{motto}}</text>
+  </view>
+
+<view class="itemView">
+ <text class="retext">用户名:</text>
+ <input class="input" name="userName" placeholder="请输入用户名" placeholder-style="font-size:15px" bindinput="userNameInput"/> </view>
+<view class="itemView">
+ <text class="retext">密 码：</text>
+ <input class="input" password placeholder="请输入密码" placeholder-style="font-size:15px" 
+bindinput="passWdInput" /> </view>
+<view class="itemView"> 
+  <button class="loginBtn" bindtap="loginBtnClick">登录</button>    <button class="resetBtn" bindtap="resetBtnClick">清除</button>
+</view>
+  
+</view>

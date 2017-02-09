@@ -1,0 +1,18 @@
+<view class="container">
+<!--数据列表模版 begin-->
+   <template name="lists">
+        <view>
+            <image src="{{img}}" class="item_img" backgroup-src="/images/jian_r.png" mode="scaleToFill"></image>
+        </view>
+        <view>{{title}}</view>
+        <view>{{time}}</view>
+    </template>
+    <!--数据列表模版 end-->
+
+    <!--列表 循环 start-->
+        <view wx:for="{{newsList}}" wx:for-item="news">
+        <template is="lists" data="{{...item}}"/>
+
+    </view>
+    <!--列表 循环 end-->
+</view>

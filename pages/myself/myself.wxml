@@ -1,0 +1,24 @@
+<view  >
+  <view  bindtap="bindViewTap" class="userinfo" style="width:{{width}}px;height:{{height/5}}px;background-size:100%;background-repeat:space">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+     <text class="userName">{{userInfo.nickName}}</text>
+  </view>
+ 
+  <view class="info_list">
+    <block wx:for="{{userListInfo}}" wx:for-index="index">
+    
+    <navigator url="{{item.link}}">
+        <view class="weui_cell" id="{{index}}">
+            <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{item.text}} </view>
+            </view>
+            
+            <view class="with_arrow" ></view>
+        </view>
+        </navigator>
+    </block>
+  </view>
+</view>
+
+  

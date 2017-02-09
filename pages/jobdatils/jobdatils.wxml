@@ -1,0 +1,4 @@
+<view style="text-align:center">
+<view>传过来的id={{title}}</view>
+
+</view>

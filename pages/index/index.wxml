@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<swiper indicator-dots="{{indicatorDots}}"  
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:{{width}}px;height:{{height/4}}px;background-size:100%;">  
+      <block wx:for="{{imageUrls}}">  
+        <swiper-item>  
+           <navigator url="{{item.link}}" hover-class="navigator-hover">  
+            <image src="{{item.url}}" class="slide-image" style="width:{{width}}px;height:{{height/4}}px;background-size:100%;"/>  
+           </navigator>   
+        </swiper-item>  
+      </block>  
+</swiper> 
+<view style="backgroud-color:#fff">
+<!--数据列表模版 begin-->
+   <template name="lists">
+   <navigator url="/pages/jobdatils/jobdatils?id={{id}}"  class="navigator"> 
+     <view class="_head">
+     <text class="_head_title">{{title}}</text>
+     <view class="_head_price">{{price}}</view>
+     </view>
+     <view class="middle">
+    <view class="middle_view" >
+            <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{adress}} </view>
+            </view>
+            
+          
+          
+        </view>
+ <view class="middle_view" >
+            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{stu}} </view>
+            </view>
+            </view>
+          <view class="middle_view" >
+            <view class="weui_cell_hd"><image src="/images/btn_experience.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{education}} </view>
+            </view>   
+          </view>
+        
+        </view>
+        <view class="middle_view.h"></view>
+     <view class="viewH">
+      <image src="{{img}}" class="item_img" backgroup-src="/images/jian_r.png" mode="scaleToFill"></image>
+     <view class="viewV">
+           <view class="bottom">
+           <view class="bottom_textview" >{{company}}</view>
+            <image src="/images/btn_v.png"  class="viewH_img" ></image>
+           </view>
+          <view class="bottom">
+           <view class="bottom_textview1" >招聘人数:{{rnumber}}</view>
+            <view class="bottom_textview2" >{{time}}</view>
+           </view>
+          
+          
+            
+            </view>
+            </view>
+    </navigator>
+    </template>
+    <!--数据列表模版 end-->
+
+    <!--列表 循环 start-->
+        <view wx:for="{{newsList}}">
+        <template is="lists" data="{{...item}}"/>
+
+    </view>
+    <!--列表 循环 end-->
+</view>
+
+
+
