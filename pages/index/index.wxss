@@ -26,13 +26,16 @@
   float: left;
   width: 70%;
   margin-left: 10px;
-  font-size: 16px;
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   
 }
 ._head_price{
   float: right;
   margin-right: 10px;
-   width: 20%;
+  
   font-size: 12px;
      color: #ff3333;
 }
@@ -100,6 +103,7 @@
 }
 .bottom_textview2{
    font-size: 13px;
-   width: 100%;
+  margin-right: 10px;
    position: relative;
+   float: right;
 }

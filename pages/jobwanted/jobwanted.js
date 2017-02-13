@@ -9,23 +9,23 @@ Page({
  ]
     },
     onLoad:function(){
-        wx.request({
-          url: 'http://192.168.1.1:8080/photo/getphoto?id=1',
-          data: {},
-          method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-          // header: {}, // 设置请求的 header
-          success: function(res){
-            // success
-            console.log(res);
-          },
-          fail: function() {
-            // fail
-            console.log("eror");
-          },
-          complete: function() {
-            // complete
-          }
-        })
+        // wx.request({
+        //   url: 'http://192.168.1.1:8080/photo/getphoto?id=1',
+        //   data: {},
+        //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        //   // header: {}, // 设置请求的 header
+        //   success: function(res){
+        //     // success
+        //     console.log(res);
+        //   },
+        //   fail: function() {
+        //     // fail
+        //     console.log("eror");
+        //   },
+        //   complete: function() {
+        //     // complete
+        //   }
+        // })
     }
 
  

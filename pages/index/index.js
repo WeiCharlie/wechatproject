@@ -1,63 +1,45 @@
 //index.js
 //获取应用实例
-var app = getApp()
+var app = getApp();
+var path=app.getpath+'/Position/selectEPositionByPage';
+var page=1;
+var pagesize=10;
+console.log(path);
+var getMoreList=function(that){
+ wx.request({
+        url: path,
+        data: {
+          page:page,
+          pagesize:pagesize
+        },
+        header:'application/Json',
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        // header: {}, // 设置请求的 header
+        success: function(res){
+          // success
+          // console.log(res.data.result)
+          that.setData({newsList:res.data.result});
+          that.setData({hidden:false});
+        },
+        fail: function() {
+          // fail
+           console.log('fail')
+        },
+        complete: function() {
+          // complete
+        }
+      })
+};
 Page({
   data: {
-    imageUrls :[
-      {
-      link:'aa',
-
-url:'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-      },
-{
-      link:'aa',
-url:'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
-      },
-      {
-      link:'aa',
-url:'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-      },
-    ],
-      newsList:[
-     {id:1,
-      title:'销售精英+五险二金',
-      price:'￥8千-1万',
-      adress:'北京市丰台区',
-      stu:'应届毕业生',
-      education:'大专',
-     company:'平安普惠企业管理有限公司北京分公司',
-     rnumber:'5人',
-     img:"../../images/myselfbj.png",time:'2017-02-06 11:04'},
-     {id:2,
-     title:'销售精英+五险二金',
-      price:'￥8千-1万',
-      adress:'北京市丰台区',
-      stu:'应届毕业生',
-      education:'大专',
-     company:'北京知云科技公司',
-      rnumber:'5人',
-     img:"../../images/myselfbj.png",time:'2017-02-06 11:04'},
-     {id:3,
-      title:'销售精英+五险二金',
-      price:'￥8千-1万',
-      adress:'北京市丰台区',
-      stu:'应届毕业生',
-      education:'大专',
-     company:'北京未知动漫股份有限公司',
-      rnumber:'5人',
-   img:"../../images/myselfbj.png",time:'2017-02-06 11:04'},
-     {id:4,
-       title:'销售精英+五险二金',
-      price:'￥8千-1万',
-      adress:'北京市丰台区',
-      stu:'应届毕业生',
-      education:'大专',
-     company:'北京未知动漫股份有限公司',
-     img:"../../images/myselfbj.png",time:'2017-02-06 11:04'}
- ],
+    imageUrls :[],
+      newsList:[],
+  hidden:false,
+  hasMore:true,
+     hasRefesh:false,
    indicatorDots: true,  
     autoplay: true,  
-    interval: 5000,  
+    interval: 3000,  
     duration: 1000
   },
    onLoad: function () {  
@@ -66,12 +48,80 @@ url:'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
       wx.getSystemInfo({
         success: function(res) {
             that.setData({width:res.windowWidth,height:res.windowHeight})
-          
+           
+        }
+      }),
+     that.setData({hidden:false});
+      wx.request({
+        url: app.getpath+'/Ad/selectAdByPage',
+        data: {
+          position:2
+        },
+       header:'application/Json',
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        // header: {}, // 设置请求的 header
+        success: function(res){
+          // success
+          that.setData({imageUrls:res.data.result})
+        },
+        fail: function() {
+          // fail
+        },
+        complete: function() {
+          // complete
         }
       })
+     getMoreList(that);
+     
    },
-   dataCode:function(data){
-      var str="11:09";
-      return str;
-   }
+  
+    onPullDownRefresh: function () {
+        // do somthing
+    
+        page=1;
+            console.log('我来刷新数据了'+page);
+        var that=this;
+        getMoreList(that);
+    },
+    onReachBottom:function(){
+   var that = this;
+
+    page++;
+        wx.request({
+        url: path,
+        data: {
+          page:page,
+          pagesize:pagesize
+        },
+        header:'application/Json',
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        // header: {}, // 设置请求的 header
+        success: function(res){
+          // success
+          // console.log(res.data.result)
+          var  list=[];
+           list=that.data.newsList;
+          for(var i=0;i<res.data.result.length;i++){
+            list.push(res.data.result[i]);
+          }
+          that.setData({newsList :list});
+          if(res.data.result.length <10){
+            that.setData({
+              hasMore :false,
+              hasRefesh:false
+            });
+          }
+        
+        },
+        fail: function() {
+          // fail
+           console.log('fail')
+        },
+        complete: function() {
+          // complete
+        }
+      })
+
+     
+    }
 })

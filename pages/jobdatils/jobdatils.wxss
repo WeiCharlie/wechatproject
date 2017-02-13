@@ -1,0 +1,12 @@
+@import "../index/index.wxss";
+.middle_h{
+    font-size: 12px;
+      margin-left: 10px;
+       color: #999;
+}
+.bottom_textview3{
+  font-size: 13px;
+  margin-right: 10px;
+   position: relative;
+   float: right;
+}

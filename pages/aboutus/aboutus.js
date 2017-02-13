@@ -1,7 +1,7 @@
 Page({
     data:{
     title:'adad',
-    adress:'www.rz158.com'
+    adress:'www.rzaas15s8.com'
     }
 
  

@@ -1,4 +1,55 @@
-<view style="text-align:center">
-<view>传过来的id={{title}}</view>
+<view >
 
+ <view class="_head">
+     <text class="_head_title">{{dataDatils.positionText}}</text>
+     <view class="_head_price" wx:if="{{dataDatils.salaryText == '面议' || dataDatils.salaryText==''}}">{{dataDatils.salaryText}}</view>
+     <view class="_head_price" wx:else>￥{{dataDatils.salaryText}}</view>
+     </view>
+     <view class="middle">
+    <view class="middle_view" >
+            <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{dataDatils.jobExperienceText}}</view>
+            </view>
+          
+        </view>
+ <view class="middle_view" >
+            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{dataDatils.degreeText}} </view>
+            </view>
+            </view>
+          <view class="middle_view" >
+            <view class="weui_cell_hd"><image src="/images/btn_experience.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{dataDatils.propertyText}} </view>
+            </view>   
+          </view>
+        <view class="middle_view" >
+            <view class="weui_cell_hd"><image src="/images/btn_recruitment.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> {{dataDatils.enterpriseInfo.property}}人 </view>
+            </view>   
+          </view>
+        </view>
+        <view class="middle_h">职位诱惑:{{dataDatils.enterpriseInfo.industryText}}</view>
+     <view class="viewH">
+      <image wx:if="{{dataDatils.enterpriseInfo.logoText ==null || dataDatils.enterpriseInfo.logoText==''}}" src="/images/logo58.png" class="item_img"  mode="scaleToFill"></image>
+      <image wx:else src="{{dataDatils.enterpriseInfo.logoText}}" class="item_img"  mode="scaleToFill"></image>
+     <view class="viewV">
+           <view class="bottom">
+           <view class="bottom_textview3" >{{dataDatils.ename}}</view>
+            <image src="/images/btn_v.png"  class="viewH_img" ></image>
+           </view>
+           <view class="bottom_textview1" >{{dataDatils.enterpriseInfo.regionText}}</view>
+          <view class="bottom">
+           <view class="bottom_textview1" wx:if="{{hireNum == null || hireNum==''}}" >招聘人数:若干</view>
+           <view class="bottom_textview1" wx:else >招聘人数:{{hireNum}}人</view>
+            <view class="bottom_textview2" >{{lastRefreshDate}}</view>
+           </view>
+          
+          
+            
+            </view>
+            </view>
 </view>
