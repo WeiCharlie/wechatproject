@@ -1,12 +1,99 @@
 @import "../index/index.wxss";
+.all{
+  background: #f3f4f8;
+  
+}
+._head{
+   background: #ffffff;
+}
+.navigator{
+    background: #ffffff;
+    margin-bottom: 10px;
+     border-bottom: 0px solid  #dadada;
+}
 .middle_h{
     font-size: 12px;
-      margin-left: 10px;
+     
+      padding-left: 10px;
+      padding-right: 10px;
+     
        color: #999;
+         background: #ffffff;
+         padding-bottom: 4px;
+  border-bottom: 1px dashed  #dadada;
 }
-.bottom_textview3{
-  font-size: 13px;
+.middleline{
+    background: #ffffff;
+}
+.bottomtype{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 2rpx 2rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+   font-size: 13px;
   margin-right: 10px;
-   position: relative;
-   float: right;
+   line-height: 20px;
 }
+
+.with_arrow{
+
+  top: 18px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.middleline{
+  display: flex;
+  position: relative;
+  height: 40px;
+ 
+} 
+.renzhi{
+  background: #ffffff;
+   display: flex;
+   align-items: center;
+   padding-left: 10px;
+   padding-right: 10px;
+     padding-bottom: 4px;
+  border-bottom: 1px solid  #dadada;
+}
+.renzhiyaoqiu{
+  font-size: 15px;
+
+}
+.weui_cell_hd{
+  line-height: 30px;
+}
+.bottom_textview4{
+line-height: 30px;
+  color: #999;
+background: #ffffff;
+  font-size: 13px;
+  padding-left: 10px;
+   padding-right: 10px;
+   margin-bottom: 10px;
+}
+.bottom_textview5{
+line-height: 30px;
+  color: #999;
+background: #ffffff;
+  font-size: 13px;
+  padding-left: 10px;
+   padding-right: 10px;
+   margin-bottom: 20px;
+}
+.sh_btn{
+  margin: 10px;
+ margin-top: 30rpx;
+  margin-bottom: 30rpx;
+size: default;
+plain:true;
+}
+
+

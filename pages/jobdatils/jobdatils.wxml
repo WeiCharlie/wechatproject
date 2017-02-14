@@ -1,11 +1,11 @@
-<view >
-
+<view class="all" style="width:{{width}}px;height:{{height}}px;background-size:100%;">
+ 
  <view class="_head">
      <text class="_head_title">{{dataDatils.positionText}}</text>
      <view class="_head_price" wx:if="{{dataDatils.salaryText == '面议' || dataDatils.salaryText==''}}">{{dataDatils.salaryText}}</view>
      <view class="_head_price" wx:else>￥{{dataDatils.salaryText}}</view>
      </view>
-     <view class="middle">
+     <view class="middleline">
     <view class="middle_view" >
             <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
             <view class="weui_cell_bd">
@@ -32,24 +32,66 @@
             </view>   
           </view>
         </view>
-        <view class="middle_h">职位诱惑:{{dataDatils.enterpriseInfo.industryText}}</view>
+        <view class="middle_h">职位诱惑:{{dataDatils.lables}}</view>
+
+        <navigator url="/pages/jobdatils/jobdatils?id={{dataDatils.id}}"  class="navigator">
      <view class="viewH">
+     
+     <!--公司头像 start -->
       <image wx:if="{{dataDatils.enterpriseInfo.logoText ==null || dataDatils.enterpriseInfo.logoText==''}}" src="/images/logo58.png" class="item_img"  mode="scaleToFill"></image>
       <image wx:else src="{{dataDatils.enterpriseInfo.logoText}}" class="item_img"  mode="scaleToFill"></image>
+      <!--公司头像 end -->
+      <!--公司布局 start -->
      <view class="viewV">
-           <view class="bottom">
+            <!--公司名称 认证 start -->
+           <view class="bottomtype">
            <view class="bottom_textview3" >{{dataDatils.ename}}</view>
             <image src="/images/btn_v.png"  class="viewH_img" ></image>
+             
            </view>
-           <view class="bottom_textview1" >{{dataDatils.enterpriseInfo.regionText}}</view>
-          <view class="bottom">
+            <!--公司名称 认证 end-->
+            <!--地区 start-->
+           <view class="bottomtype" >
+           <text class="bottom_textview1">{{dataDatils.enterpriseInfo.regionText}}</text></view>
+            <!--地区 end-->
+             <!--规模 start-->
+          <view class="bottomtype">
            <view class="bottom_textview1" wx:if="{{hireNum == null || hireNum==''}}" >招聘人数:若干</view>
-           <view class="bottom_textview1" wx:else >招聘人数:{{hireNum}}人</view>
-            <view class="bottom_textview2" >{{lastRefreshDate}}</view>
+           <view class="bottom_textview1" wx:else >{{dataDatils.scaleText}}</view>
+            
            </view>
-          
-          
+         <!--规模end-->
+           
+            </view>
+             <!--公司布局 end-->
+             <image class="with_arrow" src="{{rightimg}}"></image>
             
             </view>
+            </navigator>
+
+        <!--任职要求 start -->  
+          <view class="renzhi" >
+            <view class="weui_cell_hd"><image src="/images/zhiwei.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="renzhiyaoqiu"> 任职要求: </view>
             </view>
+            </view>
+             
+                <view class="bottom_textview4">任职要求{{dataDatils.jobdemand}}</view>
+         <!--任职要求 end--> 
+
+
+           <!--工作地点 start -->  
+          <view class="renzhi" >
+            <view class="weui_cell_hd"><image src="/images/zhiwei.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="renzhiyaoqiu"> 工作地点 </view>
+            </view>
+            </view>
+
+            <view class="bottom_textview5">{{dataDatils.regionText}}{{dataDatils.districtText}}</view>
+         <!--工作地点 end-->   
+
+         <button type="primary" wx:if="{{dataDatils.isReward ==  1}}" class="sh_btn" disabled="false" bindtap="applyjob">申请职位</button>   
+         <button type="primary" wx:else class="sh_btn" disabled="true">申请职位</button>  
 </view>

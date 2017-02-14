@@ -1,33 +1,97 @@
-var app=getApp()
+//jobwanted.js
+//获取应用实例
+var app = getApp();
+var path=app.getpath+'/Position/selectEPositionByPage';
+var page=1;
+var pagesize=10;
+console.log(path);
+var getMoreList=function(that){
+ wx.request({
+        url: path,
+        data: {
+          page:page,
+          pagesize:pagesize
+        },
+        header:'application/Json',
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        // header: {}, // 设置请求的 header
+        success: function(res){
+          // success
+          // console.log(res.data.result)
+          that.setData({newsList:res.data.result});
+          that.setData({hidden:false});
+        },
+        fail: function() {
+          // fail
+           console.log('fail')
+        },
+        complete: function() {
+          // complete
+        }
+      })
+};
 Page({
-    data:{
- newsList:[
-     {id:1,title:'平安普惠企业管理有限公司北京分公司',img:"../../images/myselfbj.png",time:'2017-02-06:11:04'},
-     {id:2,title:'北京知云科技公司',img:"../../images/myselfbj.png",time:'2017-02-06:11:04'},
-     {id:3,title:'北京未知动漫股份有限公司',img:"../../images/myselfbj.png",time:'2017-02-06:11:04'},
-     {id:4,title:'ddd',img:"../../images/myselfbj.png",time:'2017-02-06:11:04'}
- ]
-    },
-    onLoad:function(){
-        // wx.request({
-        //   url: 'http://192.168.1.1:8080/photo/getphoto?id=1',
-        //   data: {},
-        //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        //   // header: {}, // 设置请求的 header
-        //   success: function(res){
-        //     // success
-        //     console.log(res);
-        //   },
-        //   fail: function() {
-        //     // fail
-        //     console.log("eror");
-        //   },
-        //   complete: function() {
-        //     // complete
-        //   }
-        // })
-    }
+  data: {
+ 
+      newsList:[],
+  hidden:false,
+  hasMore:true,
+     hasRefesh:false,
+  
+  },
+   onLoad: function () {  
+      //onload 进入页面加载
+    var that=this
+      wx.getSystemInfo({
+        success: function(res) {
+            that.setData({width:res.windowWidth,height:res.windowHeight})
+           
+        }
+      }),
+     that.setData({hidden:false});
+     getMoreList(that);
+     
+   },
 
- 
- 
+    onReachBottom:function(){
+   var that = this;
+
+    page++;
+        wx.request({
+        url: path,
+        data: {
+          page:page,
+          pagesize:pagesize
+        },
+        header:'application/Json',
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        // header: {}, // 设置请求的 header
+        success: function(res){
+          // success
+          // console.log(res.data.result)
+          var  list=[];
+           list=that.data.newsList;
+          for(var i=0;i<res.data.result.length;i++){
+            list.push(res.data.result[i]);
+          }
+          that.setData({newsList :list});
+          if(res.data.result.length <10){
+            that.setData({
+              hasMore :false,
+              hasRefesh:false
+            });
+          }
+        
+        },
+        fail: function() {
+          // fail
+           console.log('fail')
+        },
+        complete: function() {
+          // complete
+        }
+      })
+
+     
+    }
 })

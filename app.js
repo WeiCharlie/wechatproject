@@ -8,7 +8,7 @@ App({
     wx.setStorageSync('logs', logs)
      
   },
-   getpath:'https://www.mofajiaoyu.com:8443',
+   getpath:'https://www.mofajiaoyu.com',
   getUserInfo:function(cb){
     var that = this
     if(this.globalData.userInfo){

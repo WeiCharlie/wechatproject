@@ -1,5 +1,36 @@
 /**index.wxss**/
-@import "../jobwanted/jobwanted.wxss";
+.viewH{
+  padding: 20rpx 10rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.viewV{
+   color: #999;
+  margin-left: 10px;
+  flex: 1;
+  float: left;
+  width: 70%;
+    
+}
+.item_img{
+ width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.textview{
+  width: 70%;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+   
+}
+
+
 .slide-image{  
     width: 100%;  
 }
@@ -7,7 +38,7 @@
    position: relative;
   display: 1;
   align-items: center;
-  border-bottom: 5px solid  #dadada;
+  border-bottom: 10px solid   #f3f4f8;
 }
 .item_img{
   width: 80rpx;
@@ -63,8 +94,8 @@
   
 }
 .weui_cell_hd image{
-  width: 20rpx;
-  height: 20rpx;
+  width: 30rpx;
+  height: 30rpx;
   align-items: center
 }
 .weui_cell_bd{

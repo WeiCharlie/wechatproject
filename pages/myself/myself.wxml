@@ -14,7 +14,7 @@
                 <view class="weui_cell_bd_p"> {{item.text}} </view>
             </view>
             
-            <view class="with_arrow" ></view>
+            <image class="with_arrow" src="{{rightimg}}"></image>
         </view>
         </navigator>
     </block>

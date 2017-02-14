@@ -2,28 +2,25 @@ var app = getApp()
 Page({
   data: {
     userInfo: {},
+    rightimg:'/images/jian_r.png',
     userListInfo: [ {
       icon: '/images/myorder.png',
-      text: '我的订单',
+      text: '简历预览',
       link:'/pages/aboutus/aboutus',
       isunread: true
   
     }, {
         icon: '/images/myresume.png',
-        text: '我的简历',
+        text: '简历编辑',
           link:'/pages/aboutus/aboutus',
         isunread: false
   
       },  {
         icon: '/images/myjobwanted.png',
           link:'/pages/aboutus/aboutus',
-        text: '求职意向'
+        text: '我的求职'
         
-      }, {
-        icon: '/images/mycall.png',
-          link:'//pages/aboutus/aboutus',
-        text: '联系客服'
-      }, {
+      },{
         icon: '/images/myhelp.png',
           link:'/pages/aboutus/aboutus',
         text: '关于我们'

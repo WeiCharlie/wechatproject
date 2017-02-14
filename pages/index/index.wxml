@@ -12,7 +12,7 @@
 <!--<loading hidden="{{hidden}}" bindchange="loadingChange">
     加载中...
   </loading> -->
-<view style="backgroud-color:#fff">
+<view style="width:{{width}}px;height:{{height}}px;backgroud-color:#f3f4f8;" class="itemb">
 
 <!--数据列表模版 begin-->
    <template name="lists">
