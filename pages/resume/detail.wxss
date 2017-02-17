@@ -1,0 +1,132 @@
+/* pages/resume/detail.wxss */
+.panel{
+    background: #39bfb2;
+    text-align: center;
+    color: #fff;
+    padding:10px;
+    font-size:15px;
+}
+
+.panel image {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+    border-radius: 50%;
+}
+
+.shortInfo {
+    line-height: 1.5;
+}
+
+.info-header image{
+    height: 17px;
+    width: 17px;
+    margin-right: 5px;
+    margin-top:2px;
+    vertical-align: middle;  
+}
+
+.mg-t {
+    margin-top: 10px;
+}
+
+.panel1 {
+    background:#fff;
+    color:#333;
+    font-size:14px;
+}
+
+.info-header {
+    line-height: 40px;
+    padding-left: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.span{
+    font-size:14px;
+    vertical-align: middle;
+}
+
+.info-main{
+    padding: 15px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.info-row {
+    line-height: 40px;
+    border-bottom: 1px dashed #ebebeb;
+    padding-left: 15px;
+    overflow: hidden;
+}
+
+.row-l {
+    color: #999;
+}
+
+.round {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    font-size: 11px;
+    text-align: center;
+    color: #39bfb2;
+    text-decoration: none;
+}
+
+.row-r {
+    text-align: right;
+    float:right;
+    width:75%;
+    padding-right:15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.exp-main {
+    padding-left:15px;
+    padding-bottom:1px;
+    padding-top:8px;
+}
+
+
+.exp-item {
+    list-style: disc;
+    list-style-type: circle;
+    color: #39bfb2;
+    margin-bottom: 10px;
+}
+
+.exp-row {
+    color: #333;
+    line-height: 2;
+    padding-left:22px;
+}
+
+.exp-row .row-l{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width: 100%;
+}
+
+.exp-row .row-rr {
+    color:#333;
+    padding-left:5px;
+}
+
+.v-l{
+    color:#333;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width: 100%;
+    padding-left:22px;
+    line-height:2;
+}
+
+.v-s {
+    margin: 0 5px;
+    color: #ccc;
+}

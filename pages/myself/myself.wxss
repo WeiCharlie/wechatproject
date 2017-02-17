@@ -5,9 +5,9 @@
 .userinfo {
   display: flex;
   flex-direction: column;
-  padding: 50rpx 0;
+  padding: 10rpx 0;
   align-items: center;
-  background-image: url("https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1485075189&di=d14017133e984619ef9934d9f303ca6b&src=http://images.cnitblog.com/blog/274170/201404/032214421561908.jpg")
+  background: #39bfb2;
 }
 .userinfo-avatar {
   width: 128rpx;
@@ -19,8 +19,14 @@
 
   
 }
+.info_list{
+  background:  #ffffff;
+}
 .userinfo-nickname {
   color: #333;
+}
+.userinfo-nickname2 {
+  color: #ffffff;
 }
 .weui_cell{
     position: relative;
@@ -58,4 +64,13 @@
  
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+.usName{
+  margin-top: 4px;
+  font-size: 14px;
+}
+.usRegin{
+   margin-top: 4px;
+  font-size: 13px;
+  color: #bdbdbd;
 }

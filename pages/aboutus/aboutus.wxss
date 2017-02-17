@@ -26,3 +26,9 @@
     font-size: 14px;
       border-top: 1px solid #dadada;
 }
+.line2{
+    color: #333;
+    margin: 10px;
+    font-size: 14px;
+      
+}

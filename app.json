@@ -1,23 +1,34 @@
 {
+  "navigationBarBackgroundColor": "#39bfb2",
   "pages":[
-    
     "pages/index/index",
     "pages/logs/logs",
-     "pages/jobdatils/jobdatils",
-         "pages/aboutus/aboutus",
+    "pages/jobdatils/jobdatils",
+    "pages/aboutus/aboutus",
     "pages/jobwanted/jobwanted",
     "pages/myself/myself",
     "pages/message/message",
     "pages/joblist/joblist",
-    "pages/login/login"
-
-   
+    "pages/login/login",
+    "pages/resume/edit",
+    "pages/resume/information",
+    "pages/resume/job_intention",
+    "pages/resume/work_experience",
+    "pages/resume/personal_evaluation",
+    "pages/myjob/myjob",
+    "pages/edubj/edubj",
+    "pages/workbj/workbj",
+    "pages/jobIntention_detail/jobIntention_detail",
+    "pages/addedu/addedu",
+    "pages/companydatil/companydatil",
+    "pages/resume/detail",
+    "pages/switchcity/switchcity"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#39bfb2",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle":"white",
     "enablePullDownRefresh": true
   }
   ,

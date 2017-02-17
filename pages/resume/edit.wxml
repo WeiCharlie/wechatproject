@@ -1,0 +1,112 @@
+<scroll-view>
+    <view class="information">
+        <navigator url="/pages/resume/information">
+            <view class="info">
+                个人信息<span>*</span>
+                <view class="img"><image src="/images/jian_r.png"/></view>
+            </view>
+        </navigator>
+        <view class="content">{{resmeDetail.jobUserInfo.length}}
+            <view wx:if="{{resmeDetail != null && resmeDetail.jobUserInfo.name !=''}}">
+                <image wx:if="{{resmeDetail.jobUserInfo.imgPath != null}}" class="info_img" src="{{resmeDetail.jobUserInfo.imgPath}}" />
+                <image wx:else class="info_img" src="{{imgUrl}}" />
+                <view class="information1">
+                    <view class="information2">
+                        {{resmeDetail.jobUserInfo.name}}　
+                        <text wx:if="{{resmeDetail.jobUserInfo.sex == 1}}">男</text>
+                        <text wx:else>女</text>　
+                        {{resmeDetail.jobUserInfo.age}}岁</view>
+                        <view class="information2">现居{{resmeDetail.jobUserInfo.cityText}}/户口{{resmeDetail.jobUserInfo.registryText}}
+                    </view>
+                    <view class="information2">{{resmeDetail.jobUserInfo.iphone}}　{{resmeDetail.jobUserInfo.email}}</view>
+                </view>
+            </view>
+            <view wx:else>
+                <view class="nomore">
+                    <image src="/images/myresume_btn_redact.png"/>填写个人基本信息
+                </view>
+            </view>            
+        </view>
+    </view>
+    <view class="information">
+        <navigator url="/pages/resume/job_intention">
+            <view class="info">
+                求职意向<span>*</span>
+                <view class="img"><image src="/images/jian_r.png"/></view>
+            </view>
+        </navigator>
+        <view class="content">
+            <view wx:if="{{resmeDetail != null && resmeDetail.jobIntension.positionText != ''}}">
+                <view class="information2">职　　位　{{resmeDetail.jobIntension.positionText}}</view>
+                <view class="information2">工作地点　{{resmeDetail.jobIntension.regionText}}</view>
+                <view class="information2">期望薪资　{{resmeDetail.jobIntension.salaryText}}</view>
+            </view>
+            <view wx:else>
+                <view class="nomore">
+                    <image src="/images/myresume_btn_redact.png"/>填写求职意向
+                </view>
+            </view>   
+        </view>
+    </view>
+    <view class="information">
+        <navigator url="/pages/edubj/edubj?id={{resmeDetail.id}}">
+            <view class="info">
+                教育经历<span>*</span>
+                <view class="img"><image src="/images/jian_r.png"/></view>
+            </view>
+        </navigator>
+        <view class="content">
+            <view wx:if="{{resmeDetail != null && resmeDetail.eduExperienceList.length > 0}}">
+                <block wx:for-items="{{resmeDetail.eduExperienceList}}" wx:for-item="item" wx:key="*item">
+                    <view class="information2">{{item.bDate}}-{{item.eDate}}</view>
+                    <view class="information2">{{item.schoolName}}　{{item.degreeText}}　{{item.specialfieldName}}</view>
+                </block>
+            </view>
+            <view wx:else>
+                <view class="nomore">
+                    <image src="/images/myresume_btn_redact.png"/>添加教育经历
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="information">
+        <navigator url="/pages/workbj/workbj?id={{resmeDetail.id}}">
+            <view class="info">
+                工作经历
+                <view class="img"><image src="/images/jian_r.png"/></view>
+            </view>
+        </navigator>
+        <view class="content">
+            <view wx:if="{{resmeDetail != null  && resmeDetail.jobExperienceList.length > 0}}">
+                <block wx:for-items="{{resmeDetail.jobExperienceList}}" wx:for-item="item" wx:key="*item">
+                    <view class="information2">{{item.bDate}}-{{item.eDate}}</view>
+                    <view class="information2">公司名称　{{item.company}}</view>
+                </block>
+            </view>
+            <view wx:else>
+                <view class="nomore">
+                    <image src="/images/myresume_btn_redact.png"/>添加工作经历
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="information">
+        <navigator url="/pages/resume/personal_evaluation?id={{resmeDetail.id}}&evaluation={{resmeDetail.evaluation}}">
+            <view class="info">
+                个人评价
+                <view class="img"><image src="/images/jian_r.png"/></view>
+            </view>
+        </navigator>
+        <view class="content">
+            <view wx:if="{{resmeDetail != null  && resmeDetail.evaluation != ''}}">
+                <text class="information3">{{resmeDetail.evaluation}}</text>
+            </view>
+            <view wx:else>
+                <view class="nomore">
+                    <image src="/images/myresume_btn_redact.png"/>填写个人评价
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="line"></view>
+</scroll-view>

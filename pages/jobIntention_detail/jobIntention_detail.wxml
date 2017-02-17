@@ -1,0 +1,31 @@
+<view class="container">
+    <view class="info_list">
+        <block wx:for="{{infolist}}" wx:for-index="index">
+            <view class="common_cell" id="{{index}}">
+                <view class="common_cell_bd">
+                    <view class="common_cell_bd_p">{{item}}</view>
+                </view>
+
+                <view class="badge">选择</view>
+                <view class="with_arrow"></view>
+            </view>
+        </block>
+    </view>
+      
+   
+      <view class="state">
+      <view class="stateLabel">目前状况</view>
+     </view>
+   <view class="stateDistrict">
+     <view class="common_cell" id="5">
+        <view class="common_cell_bd">
+            <view class="common_cell_bd_p">工作状态</view>
+        </view>
+        <view class="badge">选择</view>
+        <view class="with_arrow"></view>
+     </view>
+     </view>
+    
+</view>
+
+

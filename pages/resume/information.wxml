@@ -1,0 +1,29 @@
+<!--pages/resume/information.wxml-->
+<scroll-view>
+ <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="wrap">
+        <view class="wra">
+            <image wx:if="{{information.imgPath != null}}" class="info_img" src="{{information.imgPath}}" />
+            <image wx:else class="info_img" src="{{imgUrl}}" />
+            <view class="weui">
+                <input name="id" value="{{information.id}}" style="display:none" />
+                <input type="text" class="input-text" name="name" placeholder="请输入姓名" value="{{information.name}}" />
+                <view class="sex">
+                    男
+                </view>
+            </view>
+        </view>
+        <view class="weui_cell" >
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p">出生日期</view>
+            </view>
+            <view class="timeView">
+                <picker wx:if="{{date == ''}}" mode="date" start="1977-01-01" end="{{endDate}}" value="1988-11-01" bindchange="bindDateChange" name="birthday">{{information.birthday}}</picker>
+                <picker wx:else mode="date" value="{{date}}" start="1977-01-01" end="{{endDate}}" bindchange="bindDateChange" name="birthday">{{date}}</picker>
+            </view>
+            <image class="with_arrow" src="{{rightimg}}"></image>
+        </view>
+    </view>
+    <button formType="submit" class="addbutn">保存</button>
+</form>
+</scroll-view>

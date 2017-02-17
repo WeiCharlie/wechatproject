@@ -10,7 +10,8 @@ var getMoreList=function(that){
         url: path,
         data: {
           page:page,
-          pagesize:pagesize
+          pagesize:pagesize,
+          isHot:1
         },
         header:'application/Json',
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
@@ -55,7 +56,7 @@ Page({
       wx.request({
         url: app.getpath+'/Ad/selectAdByPage',
         data: {
-          position:2
+          position:1
         },
        header:'application/Json',
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT

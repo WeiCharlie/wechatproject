@@ -1,0 +1,56 @@
+<!--pages/addedu/addedu.wxml-->
+<view class="allcontain">
+
+    <view class="schoolview">
+        <view class="name">学校名称</view>
+        <input placeholder="请输入学校名称" class="inputview" bindinput="input1js" value="{{cData.schoolName}}"/>
+    </view>
+   <view class="weui_cell" >
+    
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 入学时间 </view>
+            </view>
+            <view class="timeView" wx:if="{{ctype==1}}">{{cData.enrollmentDate}}</view>
+              <view class="timeView" wx:else>{{starttime}}</view>
+            <image class="with_arrow" src="{{rightimg}}"></image>
+        </view>
+        <view class="weui_cell" >
+    
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 毕业时间</view>
+            </view>
+   <view class="timeView" wx:if="{{ctype==1}}">{{cData.graduationDate}}</view>
+              <view class="timeView" wx:else>{{endtime}}</view>
+
+            
+            <image class="with_arrow" src="{{rightimg}}"></image>
+        </view>
+        <view class="weui_cell" >
+    
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 专业名称 </view>
+            </view>
+             
+             <input  placeholder="请输入专业名称" class="input2" bindinput="input2js" value="{{cData.specialfieldName}}"></input>
+            
+          
+        </view>
+        
+        <view class="weui_cell" bindtap="choose">
+    
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p">学历/学位</view>
+            </view>
+             <view class="timeView" wx:if="{{ctype==1}}">{{cData.degreeText}}</view>
+              <view class="timeView" wx:else>{{degree}}</view>
+
+            
+            <image class="with_arrow" src="{{rightimg}}"></image>
+        </view>
+
+         <view class ="addbutn">
+  
+    <view class="add"  bindtap="sumbitbutton" loading="{{loading}}">保存</view>
+  
+   </view>
+</view>

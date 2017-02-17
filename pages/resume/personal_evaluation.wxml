@@ -1,0 +1,8 @@
+<!--pages/resume/personal_evaluation.wxml-->
+<view class="bgView">
+<form bindsubmit="sureClick">
+    <input type="text" style="display:none" name="id" value="{{id}}" />
+    <textarea class="inputView" name="evaluation" value="{{evaluation}}" placeholder="请输入自我评价信息"  auto-focus/>
+    <button class="sureBtn" formType="submit" style="color:white"> 保    存 </button>
+</form>
+</view> 

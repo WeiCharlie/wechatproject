@@ -1,0 +1,27 @@
+/* pages/resume/personal_evaluation.wxss */
+
+
+.inputView{
+    margin: auto;
+    background-color: white;
+    height: 200px;
+    width: 90%;
+    margin-top: 30px;
+}
+
+.sureBtn{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    line-height: 30px;
+    width: 50%;
+    background-color: #39BFB2;
+    text-align: center;
+    
+}
+
+
+page{
+  background: #f3f4f8
+}

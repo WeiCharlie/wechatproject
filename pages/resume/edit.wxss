@@ -1,0 +1,80 @@
+/* pages/resume/edit.wxss */
+.information{
+    background: #fff;
+    margin: 10px;
+}
+
+.info{
+    font-size: 14px;
+    padding:5px 10px;
+    color:#323232;
+    height: 30px;
+    line-height: 30px;
+    background:#dbf6f4;
+}
+
+.info span{
+    color:red;
+}
+
+.img{
+    float:right;
+}
+
+.info image{
+    height:15px;
+    width:15px;
+    vertical-align: middle;
+}
+
+.content{
+    padding:10px;
+}
+
+.info_img{
+    width:70px; 
+    height:70px;
+    vertical-align: middle;
+    border-radius: 5%;
+}
+
+.information1{
+    width:73%;
+    float: right;
+}
+
+.information2{
+    color:#818181;
+    font-size:14px;
+    height:25px; 
+    line-height:25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.information3{
+    color:#818181;
+    font-size:14px;
+}
+
+.line{
+    height:10px;
+    width:100%;
+    background:#f3f4f8;
+}
+
+.nomore{
+    color:#39bfb2;
+    font-size:14px;
+    text-align: center;
+    line-height: 5;
+}
+
+.nomore image {
+    width:17px;
+    height:17px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: -3px;
+}

@@ -34,7 +34,7 @@
         </view>
         <view class="middle_h">职位诱惑:{{dataDatils.lables}}</view>
 
-        <navigator url="/pages/jobdatils/jobdatils?id={{dataDatils.id}}"  class="navigator">
+        <navigator url="/pages/companydatil/companydatil?eid={{dataDatils.eid}}"  class="navigator">
      <view class="viewH">
      
      <!--公司头像 start -->
@@ -92,6 +92,15 @@
             <view class="bottom_textview5">{{dataDatils.regionText}}{{dataDatils.districtText}}</view>
          <!--工作地点 end-->   
 
-         <button type="primary" wx:if="{{dataDatils.isReward ==  1}}" class="sh_btn" disabled="false" bindtap="applyjob">申请职位</button>   
-         <button type="primary" wx:else class="sh_btn" disabled="true">申请职位</button>  
+     <view class ="addbutn" bindtap="applypos" wx:if="{{isapply == false}}">
+
+    <view class="add">申请职位</view>
+  
+   </view>
+<view class ="addapplaybutn" wx:else>
+
+    <view class="add">已申请</view>
+  
+   </view>
+   
 </view>

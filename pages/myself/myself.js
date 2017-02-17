@@ -6,18 +6,18 @@ Page({
     userListInfo: [ {
       icon: '/images/myorder.png',
       text: '简历预览',
-      link:'/pages/aboutus/aboutus',
+      link:'/pages/resume/detail',
       isunread: true
   
     }, {
         icon: '/images/myresume.png',
         text: '简历编辑',
-          link:'/pages/aboutus/aboutus',
+          link:'/pages/resume/edit',
         isunread: false
   
       },  {
         icon: '/images/myjobwanted.png',
-          link:'/pages/aboutus/aboutus',
+          link:'/pages/myjob/myjob',
         text: '我的求职'
         
       },{
@@ -29,19 +29,16 @@ Page({
   onLoad: function () {  
       //onload 进入页面加载
     var that=this
-      wx.getSystemInfo({
-        success: function(res) {
-            that.setData({width:res.windowWidth,height:res.windowHeight})
-          
-        }
-      })
-     
-    //调用应用实例的方法获取全局数据
+    wx.getSystemInfo({
+      success: function(res) {
+          that.setData({width:res.windowWidth,height:res.windowHeight})
+      }
+    })
     app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-      userInfo:userInfo
-      })
+        //更新数据
+          that.setData({
+            userInfo:userInfo
+          })
     })
   }, 
   getInfoimage:function(){

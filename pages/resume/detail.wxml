@@ -1,0 +1,158 @@
+<!--pages/resume/detail.wxml-->
+<scroll-view>
+    <view class="panel">
+        <image src="{{resmeDetail.jobUserInfo.imgPath}}" />
+        <view class="shortInfo">{{resmeDetail.jobUserInfo.name}}</view>
+        <view class="shortInfo">
+            <text wx:if="{{resmeDetail.jobUserInfo.sex == 1}}">男</text>
+            <text wx:else>女</text>　
+            {{resmeDetail.jobUserInfo.age}}　
+            3年工作经验
+        </view>
+    </view>
+    <view class="panel1 mg-t">
+        <view class="info-header">
+            <image src="/images/i-self.png" /><text class="span">自我评价</text>
+        </view>
+        <view class="info-main">{{resmeDetail.evaluation}}</view>
+    </view>
+    <view class="panel1 mg-t">
+        <view class="info-header">
+            <image src="/images/i-basic.png" /><text class="span">基本资料</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">姓　　名</text>
+            <text class="row-r">{{resmeDetail.jobUserInfo.name}}</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">性　　别</text>
+            <text wx:if="{{resmeDetail.jobUserInfo.sex == 1}}" class="row-r">男</text>
+            <text wx:else class="row-r">女</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">出生日期</text>
+            <text class="row-r">{{resmeDetail.jobUserInfo.birthday}}</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">户　　口</text>
+            <text class="row-r">{{resmeDetail.jobUserInfo.registryText}}</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">现居住地</text>
+            <text class="row-r">{{resmeDetail.jobUserInfo.cityText}}</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">工作经验</text>
+            <text class="row-r">1年</text>
+        </view>
+        <view class="info-row" style="border-bottom:none;">
+            <text class="row-l">学　　历</text>
+            <text class="row-r">{{resmeDetail.eduExperienceList[0].degreeText}}</text>
+        </view>
+    </view>
+    <view class="panel1 mg-t">
+        <view class="info-header">
+            <image src="/images/i-phone.png" /><text class="span">联系方式</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">电话号码</text>
+            <text class="row-r">{{resmeDetail.jobUserInfo.iphone}}</text>
+        </view>
+        <view class="info-row" style="border-bottom:none;">
+            <text class="row-l">邮　　箱</text>
+            <text class="row-r">{{resmeDetail.jobUserInfo.email}}</text>
+        </view>
+    </view>
+    <view class="panel1 mg-t">
+        <view class="info-header">
+            <image src="/images/i-intention.png" /><text class="span">求职意向</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">工作性质</text>
+            <text class="row-r">{{resmeDetail.jobIntension.jobPropertyText}}</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">工作地点</text>
+            <text class="row-r">{{resmeDetail.jobIntension.regionText}}</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">行业类别</text>
+            <text class="row-r">{{resmeDetail.jobIntension.industryText}}</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">职位类别</text>
+            <text class="row-r">{{resmeDetail.jobIntension.positionText}}</text>
+        </view>
+        <view class="info-row">
+            <text class="row-l">期望薪资</text>
+            <text class="row-r">{{resmeDetail.jobIntension.salaryText}}</text>
+        </view>
+        <view class="info-row" style="border-bottom:none;">
+            <text class="row-l">工作状态</text>
+            <text class="row-r">{{resmeDetail.jobIntension.jobStatusText}}</text>
+        </view>
+    </view>
+    <view class="panel1 mg-t">
+        <view class="info-header">
+            <image src="/images/i-exp.png" /><text class="span">工作经历</text>
+        </view>
+        <view class="exp-main">
+            <block wx:for-items="{{resmeDetail.jobExperienceList}}" wx:for-item="item" wx:key="*item">
+                <view class="exp-item">
+                    <view class="exp-row" style="padding-left:0px;">
+                        <text class="round">●</text>
+                        {{item.bDate}}-{{item.eDate}}
+                    </view>
+                    <view class="exp-row">
+                        <view class="row-l">
+                            公司名称
+                            <text class="row-rr">{{item.company}}</text>
+                        </view>
+                    </view>
+                    <view class="exp-row">
+                        <view class="row-l">
+                            公司行业
+                            <text class="row-rr">{{item.industryText}}</text>
+                        </view>
+                    </view>
+                    <view class="exp-row">
+                        <view class="row-l">
+                            职位名称
+                            <text class="row-rr">{{item.positionName}}</text>
+                        </view>
+                    </view>
+                    <view class="exp-row">
+                        <view class="row-l">
+                            薪　　资
+                            <text class="row-rr">{{item.salaryText}}</text>
+                        </view>
+                    </view>
+                    <view class="exp-row">
+                        <view class="row-l">
+                            工作内容
+                            <text class="row-rr">{{item.jobContent}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="panel1 mg-t">
+        <view class="info-header">
+            <image src="/images/i-edu.png" /><text class="span">教育经历</text>
+        </view>
+        <view class="exp-main">
+            <block wx:for-items="{{resmeDetail.eduExperienceList}}" wx:for-item="item" wx:key="*item">
+                <view class="exp-item">
+                    <view class="exp-row" style="padding-left:0px;">
+                        <text class="round">●</text>
+                        {{item.bDate}}-{{item.eDate}}
+                    </view>
+                    <view class="v-l">
+                        {{item.schoolName}}<text class="v-s">|</text>{{item.degreeText}}<text class="v-s">|</text>{{item.specialfieldName}}
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</scroll-view>

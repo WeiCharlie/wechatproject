@@ -1,0 +1,57 @@
+/* pages/companydatil/companydatil.wxss */
+.content{
+    background: #fff;
+    padding:10px;
+    margin-bottom:10px;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.site, .fullName, .box-flex{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.content image {
+    width: 70px;
+    height: 70px;
+    margin-top: 20px;
+}
+
+.line {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding-left:10px;
+    padding-right: 10px;
+}
+
+.c-title{
+    color: #39bfb2;
+}
+
+.mix-cls {
+    text-align: justify;
+    line-height: 2.0;
+    font-size:15px;
+}
+
+.c-title2{
+    color:#39bfb2;
+    text-align: left;
+}
+
+.c-title2 image{
+  width: 30rpx;
+  height: 30rpx;
+  align-items: center;
+  margin-right:3px;
+}
+
+.c-title3{
+    text-align: left;
+    margin-top:5px;
+    line-height: 26px;
+}

@@ -1,0 +1,98 @@
+<!--pages/workbj/addWorkbj.wxml-->
+<scroll-view class="myScrollView">
+    <view class="cellType0" >
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 公司名称 </view>
+            </view>
+             
+            <input  placeholder="请输入公司名称" class="input0">
+            </input>
+    </view>
+
+
+
+    <view class="cellType1">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 任职时间（开始） </view>
+            </view>
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+            
+    </view>
+
+
+
+    <view class="sepColorView">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 公司信息 </view>
+            </view>
+    </view>
+
+
+
+    <view class="cellType0">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 行业类别 </view>
+            </view>
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+            
+    </view>
+
+        
+    <view class="cellType1">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 公司规模 </view>
+            </view>
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+            
+    </view>
+
+
+    <view class="sepColorView">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 职位信息 </view>
+            </view>
+    </view>
+
+
+    <view class="cellType0">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 职位类别 </view>
+            </view>
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+            
+    </view>
+
+
+
+
+    <view class="cellType0" >
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 职位名称 </view>
+            </view>
+             
+            <input  placeholder="请输入公司名称" class="input0">
+            </input>
+    </view>
+
+    <view class="cellType0">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 职位薪资（税前） </view>
+            </view>
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+            
+    </view>
+
+    <view class="cellType1">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 工作描述 </view>
+            </view>
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+            
+    </view>
+
+
+
+
+    <button class="sureBtn" formType="submit" style="color:white"> 保    存       </button> 
+
+</scroll-view>

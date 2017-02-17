@@ -1,7 +1,9 @@
 <view  >
-  <view  bindtap="bindViewTap" class="userinfo" style="width:{{width}}px;height:{{height/5}}px;background-size:100%;background-repeat:space">
+  <view  bindtap="bindViewTap" class="userinfo" style="width:{{width}}px;height:{{height/4}}px;background-size:100%;background-repeat:space">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-     <text class="userName">{{userInfo.nickName}}</text>
+     <text class="usName">{{userInfo.nickName}}</text>
+     <text class="usRegin" wx:if="{{userInfo.gender ==1}}">{{userInfo.province}}{{userInfo.city}}/男</text>
+      <text class="usRegin" wx:else>{{userInfo.province}}{{userInfo.city}}/女</text>
   </view>
  
   <view class="info_list">

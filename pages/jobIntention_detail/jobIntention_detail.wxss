@@ -1,0 +1,78 @@
+/* pages/jobIntention_detail/jobIntention_detail.wxss */
+@import "/utils/common.wxss";
+page{
+  background-color: #f3f4f8;
+
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px ;
+
+  
+  /*box-sizing: border-box;*/
+  
+
+} 
+
+.info_list
+{
+
+  width:100%;
+  height: 100%;
+
+}
+
+.state{
+
+  margin-top: 0px;
+
+  height: 44px;
+
+  width: 100%;
+
+  background-color: #daf6f4;
+
+   display: flex;
+  flex-direction: row;
+  align-items: center;
+
+
+}
+
+.stateLabel{
+
+  align-content: center;
+  
+  font-size: 15px;
+  
+  padding-left: 10px;
+
+
+
+
+
+}
+
+.stateDistrict{
+
+  width: 100%;
+
+  height: 100%;
+
+
+}
+
+.chooseType{
+
+  font-size: 14px;
+   position: absolute;
+  top: 18px;
+  right: 15px;
+
+
+
+}
