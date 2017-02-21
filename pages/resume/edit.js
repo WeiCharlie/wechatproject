@@ -6,7 +6,8 @@ var uid = 0;
 Page({
   data:{
     resmeDetail: null,
-    imgUrl: null
+    imgUrl: null,
+    hiddenLoading: false
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -43,7 +44,8 @@ var ResumeDetial = function (that) {
       // success
       if(res.data.code == 0) {
         that.setData({
-          resmeDetail: res.data.result[0]
+          resmeDetail: res.data.result[0],
+          hiddenLoading: true
         })
       }
     },

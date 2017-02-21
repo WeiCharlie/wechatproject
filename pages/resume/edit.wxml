@@ -109,4 +109,5 @@
         </view>
     </view>
     <view class="line"></view>
+    <loading hidden="{{hiddenLoading}}">正在加载</loading>
 </scroll-view>

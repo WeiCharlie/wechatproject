@@ -10,8 +10,12 @@
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> 入学时间 </view>
             </view>
-            <view class="timeView" wx:if="{{ctype==1}}">{{cData.enrollmentDate}}</view>
-              <view class="timeView" wx:else>{{starttime}}</view>
+         <view class="timeView">
+                <picker wx:if="{{ctype==1}}" mode="date" start="1977-01-01"  value="{{cData.enrollmentDate}}" bindchange="bindstartsttuChange" name="enteance">{{byears}}</picker>
+                <picker wx:else mode="date" value="{{bdate}}" start="1977-01-01"bindchange="bindstartsttuChange" name="birthday">{{byears}}</picker>
+            </view>
+
+            
             <image class="with_arrow" src="{{rightimg}}"></image>
         </view>
         <view class="weui_cell" >
@@ -19,9 +23,13 @@
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> 毕业时间</view>
             </view>
-   <view class="timeView" wx:if="{{ctype==1}}">{{cData.graduationDate}}</view>
-              <view class="timeView" wx:else>{{endtime}}</view>
 
+ <view class="timeView">
+                <picker wx:if="{{ctype==1}}" mode="date" start="1977-01-01"  value="{{cData.graduationDate}}" bindchange="bindgradtimeChange" name="enteance">{{jyears}}</picker>
+                <picker wx:else mode="date" value="{{jdate}}" start="1977-01-01"bindchange="bindgradtimeChange" name="birthday">{{jyears}}</picker>
+            </view>
+
+   
             
             <image class="with_arrow" src="{{rightimg}}"></image>
         </view>
@@ -42,7 +50,7 @@
                 <view class="weui_cell_bd_p">学历/学位</view>
             </view>
              <view class="timeView" wx:if="{{ctype==1}}">{{cData.degreeText}}</view>
-              <view class="timeView" wx:else>{{degree}}</view>
+              <view class="timeView" wx:else>{{degreeText}}</view>
 
             
             <image class="with_arrow" src="{{rightimg}}"></image>
@@ -53,4 +61,11 @@
     <view class="add"  bindtap="sumbitbutton" loading="{{loading}}">保存</view>
   
    </view>
+
+   <action-sheet hidden="{{actionSheetHidden}}" bindchange="choose"> 
+    <block wx:for-items="{{items}}" wx:for-index="index">  
+      <action-sheet-item bindtap="bindItemTap" data-name="{{item}}" data-id="{{index}}">{{item}}</action-sheet-item> 
+       </block> 
+       <action-sheet-cancel >取消</action-sheet-cancel>
+    </action-sheet>
 </view>

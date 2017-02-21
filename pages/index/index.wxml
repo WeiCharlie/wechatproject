@@ -3,15 +3,13 @@
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width:{{width}}px;height:{{height/4}}px;background-size:100%;">  
       <block wx:for="{{imageUrls}}">  
         <swiper-item>  
-           <navigator url="/pages/edubj/edubj" hover-class="navigator-hover">  
+           <navigator url="" hover-class="navigator-hover">  
             <image src="{{item.fid}}" class="slide-image" style="width:{{width}}px;height:{{height/4}}px;background-size:100%;"/>  
            </navigator>   
         </swiper-item>  
       </block>  
 </swiper> 
-<!--<loading hidden="{{hidden}}" bindchange="loadingChange">
-    加载中...
-  </loading> -->
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
 <view style="width:{{width}}px;height:{{height}}px;backgroud:#f3f4f8;" class="itemb">
 
 <!--数据列表模版 begin-->

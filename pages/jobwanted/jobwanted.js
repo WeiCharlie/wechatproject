@@ -12,7 +12,8 @@ var getMoreList=function(that){
         data: {
           page:page,
           pagesize:pagesize,
-          keyword:key
+          keyword:key,
+         jobPlace: that.data.adressid
         },
         header:'application/Json',
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
@@ -20,14 +21,21 @@ var getMoreList=function(that){
         success: function(res){
           // success
           // console.log(res.data.result)
-        var len=  res.data.result.length;
+          if(res.data.result!=null){
+var len=  res.data.result.length;
         if(len<10){
   that.setData({hasMore:false});
         }else{
  that.setData({hasMore:true});
         }
           that.setData({newsList:res.data.result});
-          that.setData({hidden:false});
+            that.setData({hidden:false});
+          }else{
+  that.setData({hasMore:false});
+          }
+        
+        
+        
         },
         fail: function() {
           // fail
@@ -45,6 +53,8 @@ Page({
   hidden:false,
   hasMore:true,
      hasRefesh:false,
+     adress:'北京市',
+     adressid:'101',
   searchData:'',
    inputShowed: false,
         inputVal: "",
@@ -59,13 +69,22 @@ Page({
         }
       }),
      that.setData({hidden:false});
-     getMoreList(that);
+     
      
    },
 onShow: function () {
     // 生命周期函数--监听页面显示
+    var that=this
     var res = app.globalData.citydata;
-    console.log(res);
+    console.log(res+"///"+app.globalData.citydata.cityname);
+   var Ndress=app.globalData.citydata.cityname ==null ?'北京市':app.globalData.citydata.cityname;
+   var Nid=app.globalData.citydata.cityid ==null ?'101':app.globalData.citydata.cityid;
+  
+    that.setData({
+  adress:Ndress,
+  adressid:Nid
+    });
+getMoreList(that);
   },
     onReachBottom:function(){
    var that = this;
@@ -75,7 +94,9 @@ onShow: function () {
         url: path,
         data: {
           page:page,
-          pagesize:pagesize
+          pagesize:pagesize,
+          keyword:key,
+         jobPlace: that.data.adressid
         },
         header:'application/Json',
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT

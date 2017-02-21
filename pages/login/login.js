@@ -1,3 +1,7 @@
+var Api = require('../../utils/Api.js');
+
+
+
 var app=getApp()
 var countDown = 60;
 
@@ -53,7 +57,12 @@ Page({
 
         if(this.data.phoneNumber)
         {   
-            if(this.data.isSecondFinish)
+            Api.fetchPost('/user/sendVerifyCode', {'telephone':this.data.phoneNumber, 'type' : 1}, (err,res) => {
+
+                if(res.code == 0){
+
+                    console.log(res);
+                    if(this.data.isSecondFinish)
              {
              countdown(this);
              this.setData({
@@ -65,7 +74,29 @@ Page({
             }
             else{
             
+          
             }
+
+                }
+                else{
+
+                      wx.showModal({
+                title:'提示',
+                content:res.message,
+                showCancel:false,
+                success: function(res){
+
+                    
+                }
+                
+
+            })
+
+                }
+
+
+            })
+            
         }
         else{
               wx.showModal({
@@ -80,8 +111,7 @@ Page({
 
             })
         }
-        
-       
+  
     },
 
     bindPhoneInput: function(e){

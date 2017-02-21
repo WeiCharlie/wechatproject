@@ -20,14 +20,15 @@ var getMoreList=function(that){
           // success
           // console.log(res.data.result)
           that.setData({newsList:res.data.result});
-          that.setData({hidden:false});
         },
         fail: function() {
           // fail
+          
            console.log('fail')
         },
         complete: function() {
-          // complete
+          // complete 
+           that.setData({hiddenLoading:true});
         }
       })
 };
@@ -35,7 +36,7 @@ Page({
   data: {
     imageUrls :[],
       newsList:[],
-  hidden:false,
+  hiddenLoading:false,
   hasMore:true,
      hasRefesh:false,
    indicatorDots: true,  
@@ -78,7 +79,7 @@ Page({
   
     onPullDownRefresh: function () {
         // do somthing
-    
+     that.setData({hiddenLoading:false});
         page=1;
             console.log('我来刷新数据了'+page);
         var that=this;
@@ -86,7 +87,7 @@ Page({
     },
     onReachBottom:function(){
    var that = this;
-
+ 
     page++;
         wx.request({
         url: path,
@@ -120,6 +121,7 @@ Page({
         },
         complete: function() {
           // complete
+            that.setData({hiddenLoading:true});
         }
       })
 

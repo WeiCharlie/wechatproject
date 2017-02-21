@@ -3,11 +3,13 @@ var app = getApp();
 var path=app.getpath+"/resume/selectEduExperienceListBy";
 var delpath=app.getpath+"/resume/deleteEduExperience";
 var rid=0;
+var Util = require( '../../utils/util.js');
 var edulist=function(that){
   wx.request({
     url: path,
     data: {
-      resumeId:5,
+   resumeId:rid
+    
     },
     method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
     // header: {}, // 设置请求的 header
@@ -33,18 +35,24 @@ Page({
     var that=this
     wx.getSystemInfo({
         success: function(res) {
-            that.setData({width:res.windowWidth,height:res.windowHeight})
+            that.setData({width:res.windowWidth,height:res.windowHeight,
+             rid:options.id
+          
+            })
            
         }
-      }),
-     rid= options.id;
-      edulist(that);
+      })
+    
+     
   },
   onReady:function(){
     // 页面渲染完成
   },
   onShow:function(){
     // 页面显示
+      var that=this
+     edulist(that);
+   
   },
   onHide:function(){
     // 页面隐藏

@@ -43,7 +43,7 @@
 
     
    <view class ="addbutn">
-  <navigator url="/pages/addedu/addedu?type=2">
+  <navigator url="/pages/addedu/addedu?type=2&rid={{rid}}">
     <view class="add">添加更多教育经历</view>
    </navigator>
    </view>

@@ -30,13 +30,13 @@ Page({
   sureClick:function(e){
 
     var that = this;
-    var comitdata = e.detail.value;
+    var commitdata = e.detail.value;
 
 // 保存个人评价
     wx.request({
         
         url: getApp().getpath+'/resume/updateJobResume',
-        data: comitdata,
+        data: commitdata,
         header:{'content-type': 'application/json;charset=UTF-8'},
         method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         // header: {}, // 设置请求的 header

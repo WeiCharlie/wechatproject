@@ -1,0 +1,7 @@
+<!--pages/workbj/addWorkSummary.wxml-->
+<view class="bgView">
+    <form bindsubmit="sureClick">
+        <textarea class="inputView" name="jobDiscr" value="{{jobDiscr}}" placeholder="请输入工作描述"  auto-focus/>
+        <button class="sureBtn" formType="submit" style="color:white"> 保    存 </button>
+    </form>
+</view> 

@@ -1,0 +1,24 @@
+<!--pages/workbj/addSalary.wxml-->
+<scroll-view class="myScrollView">
+
+    
+
+
+    <block wx:for-items="{{salaryList}}" wx:for-item="item" wx:key="*item">
+
+        <view class="cellType0" data-myDictKey="{{item.dictKey}}" data-myDictValue="{{item.dictValue}}" bindtap="chooseClick">
+                <view class="weui_cell_bd">
+                    <view class="weui_cell_bd_p"> {{item.dictValue}} </view>
+                </view>
+                
+        </view>
+
+    </block>
+
+
+
+
+
+
+
+</scroll-view>

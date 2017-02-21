@@ -9,7 +9,12 @@
                 <input name="id" value="{{information.id}}" style="display:none" />
                 <input type="text" class="input-text" name="name" placeholder="请输入姓名" value="{{information.name}}" />
                 <view class="sex">
-                    男
+                    <radio-group class="radio-group" name="sex">
+                        <radio wx:if="{{information.sex == 1}}" value="1" checked="true">男　</radio>
+                        <radio wx:else value="1">男　</radio>
+                        <radio wx:if="{{information.sex == 2}}" value="2" checked="true" class="radio">女</radio>
+                        <radio wx:else value="2" class="radio">女</radio>
+                    </radio-group>
                 </view>
             </view>
         </view>
@@ -18,12 +23,87 @@
                 <view class="weui_cell_bd_p">出生日期</view>
             </view>
             <view class="timeView">
-                <picker wx:if="{{date == ''}}" mode="date" start="1977-01-01" end="{{endDate}}" value="1988-11-01" bindchange="bindDateChange" name="birthday">{{information.birthday}}</picker>
-                <picker wx:else mode="date" value="{{date}}" start="1977-01-01" end="{{endDate}}" bindchange="bindDateChange" name="birthday">{{date}}</picker>
+                <picker wx:if="{{bdate == ''}}" mode="date" start="1977-01-01" end="{{endDate}}" value="{{birthdays}}" bindchange="bindBirthdayChange" name="birthday">{{byears}}</picker>
+                <picker wx:else mode="date" value="{{bdate}}" start="1977-01-01" end="{{endDate}}" bindchange="bindBirthdayChange" name="birthday">{{byears}}</picker>
             </view>
             <image class="with_arrow" src="{{rightimg}}"></image>
+        </view>
+        <view class="weui_cell" >
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p">参加工作时间</view>
+            </view>
+            <view class="timeView">
+                <picker wx:if="{{jdate == ''}}" mode="date" start="1977-01-01" end="{{endDate}}" value="{{joinJobDates}}" bindchange="bindJoinJobDateChange" name="joinJobDate">{{jyears}}</picker>
+                <picker wx:else mode="date" value="{{jdate}}" start="1977-01-01" end="{{endDate}}" bindchange="bindJoinJobDateChange" name="joinJobDate">{{jyears}}</picker>
+            </view>
+            <image class="with_arrow" src="{{rightimg}}"></image>
+        </view>
+        <view class="weui_cell" bindtap="changeCity">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p">现居住城市</view>
+            </view>
+            <view class="timeView">
+                <text>{{cityText}}</text>
+                <input type="text" name="city" value="{{cityId}}" class="hidden" />
+            </view>
+            <image class="with_arrow" src="{{rightimg}}"></image>
+        </view>        
+        <view class="weui_cell" bindtap="changePlace">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p">户口所在地</view>
+            </view>
+            <view class="timeView">
+                <text>{{registryText}}</text>
+                <input type="text" name="registry" value="{{registry}}" class="hidden" />
+            </view>
+            <image class="with_arrow" src="{{rightimg}}"></image>
+        </view>
+        <view class="weui_cell" style="border-bottom:none;">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p">身份证号码</view>
+            </view>
+            <view class="timeView" style="right:20px;">
+                <input type="idcard" value="{{information.card}}" maxlength="18" name="card" placeholder="请输入身份证号" />
+            </view>
+        </view>
+    </view>
+    <view class="wrap">
+        <view class="info">联系信息</view>
+        <view class="weui_cell">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p">手机号码</view>
+            </view>
+            <view class="timeView" style="right:20px;">
+                <input type="number" value="{{information.iphone}}" maxlength="11" name="iphone" placeholder="请输入手机号" />
+            </view>
+        </view>
+        <view class="weui_cell" style="border-bottom:none;">
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p">邮箱地址</view>
+            </view>
+            <view class="timeView" style="right:20px;">
+                <input value="{{information.email}}" name="email" placeholder="请输入邮箱地址" />
+            </view>
         </view>
     </view>
     <button formType="submit" class="addbutn">保存</button>
 </form>
+<loading hidden="{{hiddenLoading}}">正在保存</loading>
+<view wx:if="{{condition}}" class="citypicker">
+  <picker-view indicator-style="height:50px;" value="{{value}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="changeCity" class="city-cancel">取消</view>
+      <view bindtap="changeCitySure" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px; text-align:center;">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px; text-align:center;">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px; text-align:center;">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
 </scroll-view>

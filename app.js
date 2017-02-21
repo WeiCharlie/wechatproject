@@ -7,6 +7,8 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     this.dictionaryData()
+    wx.setStorageSync('userId', '7')
+    wx.setStorageSync('userName', '测试')
   },
   getpath:'https://www.mofajiaoyu.com',
   getUserInfo:function(cb){

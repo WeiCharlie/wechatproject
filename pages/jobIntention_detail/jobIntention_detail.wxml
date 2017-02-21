@@ -1,15 +1,52 @@
 <view class="container">
     <view class="info_list">
-        <block wx:for="{{infolist}}" wx:for-index="index">
-            <view class="common_cell" id="{{index}}">
+       
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{workProperty}}" id="0">
+                 <view class="common_cell" >
                 <view class="common_cell_bd">
-                    <view class="common_cell_bd_p">{{item}}</view>
+                    <view class="common_cell_bd_p">工作性质</view>
                 </view>
-
-                <view class="badge">选择</view>
+                <view class="badge">{{jobModel.jobPropertyText}}</view>
                 <view class="with_arrow"></view>
             </view>
-        </block>
+            </picker>
+                
+            
+              <navigator url="../../pages/switchcity/switchcity">
+               <view class="common_cell" bindtap="chooseType" id="3">
+                <view class="common_cell_bd">
+                    <view class="common_cell_bd_p">工作地点</view>
+                </view>
+                <view class="badge">{{jobModel.regionText}}</view>
+                <view class="with_arrow"></view>
+            </view>
+            </navigator>
+                   <view class="common_cell" bindtap="chooseType" id="4">
+                <view class="common_cell_bd">
+                    <view class="common_cell_bd_p">职位类别</view>
+                </view>
+                 <view class="badge">{{jobModel.positionText}}</view>
+                <view class="with_arrow"></view>
+                </view>
+                   <view class="common_cell" bindtap="chooseType" id="5">
+                <view class="common_cell_bd">
+                    <view class="common_cell_bd_p">行业类别</view>
+                </view>
+                <view class="badge">{{jobModel.industryText}}</view>
+                <view class="with_arrow"></view>
+                </view>
+
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{salaryProperty}}" id="1">
+                  <view class="common_cell"  >
+                <view class="common_cell_bd">
+                    <view class="common_cell_bd_p">期望薪金</view>
+                </view>
+                <view class="badge">{{jobModel.salaryText}}</view>
+                <view class="with_arrow"></view>
+            </view>
+            </picker>
+                 
+        
     </view>
       
    
@@ -17,15 +54,74 @@
       <view class="stateLabel">目前状况</view>
      </view>
    <view class="stateDistrict">
-     <view class="common_cell" id="5">
+   <picker bindchange="bindPickerChange"  range="{{workState}}" id="2">
+               
+                   <view class="common_cell" >
         <view class="common_cell_bd">
             <view class="common_cell_bd_p">工作状态</view>
         </view>
-        <view class="badge">选择</view>
+        <view class="badge">{{jobModel.jobStatusText}}</view>
         <view class="with_arrow"></view>
      </view>
+            </picker>
+ 
      </view>
+
+     <view class="stateDistrict">
+
+        <view class="common_cell" >
+        <view class="common_cell_bd">
+
+        <view class="test" bindtap="checkShow">
+            <icon class="common-icon-checkbox_circle" type="circle" size="23" wx:if="{{!checked}}"></icon>
+                        <icon class="common-icon-checkbox_success" type="success" size="23" wx:if="{{checked}}"></icon>
+        </view>
+        <view class="badge1">将此求职意向显示在我的简历中</view>
+                    
+        </view>
+      
+     </view>
+
+     <button class="saveBtn" bindtap="saveJobIntention">保存</button>
+
     
 </view>
+</view>
+<view wx:if="{{industryChecked}}" class="citypicker">
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{industryValue}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="cancel" class="city-cancel">取消</view>
+      <view bindtap="open" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{industry_level1}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{industry_level2}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{industry_level3}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+
+
+<view wx:if="{{positionChecked}}" class="citypicker">
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{positionValue}}" bindchange="bindChange1" class="citybody">
+    <view class="cityheader">
+      <view bindtap="cancel1" class="city-cancel">取消</view>
+      <view bindtap="open1" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{position_level1}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{position_level2}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+    </picker-view-column>
+
+  </picker-view>
+</view>
+
+
 
 

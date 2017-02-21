@@ -42,6 +42,35 @@
   text-align: center;
   font-size: 14px;
 }
+
+.badge1{
+  position: absolute;
+  top: 18px;
+  left: 50px;
+  
+  line-height: 15px;
+  
+  color:#939393;
+
+  text-align: center;
+  font-size: 14px;
+}
+
+.badge3{
+    position: absolute;
+  
+  right: 10pxpx;
+  
+  align-items: center;
+
+  line-height: 15px;
+  
+  color:#939393;
+
+  text-align: center;
+  font-size: 14px;
+}
+
 .with_arrow{
   position: absolute;
   top: 18px;
@@ -51,4 +80,27 @@
   background-image: url(../../images/jian_r.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+.common-check {
+  position: absolute;
+  left: -9999px;
+}
+.common-check__hd_in-checkbox {
+  padding-right: 0.35em;
+}
+.common-icon-checkbox_circle,
+.common-icon-checkbox_success {
+  margin-left: 4.6px;
+  margin-right: 4.6px;
+}
+
+.common-check__label:active {
+  background-color: #ECECEC;
+}
+.common-cells {
+  position: relative;
+  margin-top: 1.17647059em;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 17px;
 }

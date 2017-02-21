@@ -6,7 +6,7 @@
  <view class="serachview">
     <navigator url="/pages/switchcity/switchcity?urltypecode=1" class="choosesity">
             <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 北京市 </view>
+                <view class="weui_cell_bd_p"> {{adress}} </view>
             </view>
             <image src="/images/arrow_down.png" class="arrowimage"></image>
             </navigator>
