@@ -28,14 +28,14 @@
      </view>
      <view class="middle">
     <view class="middle_view" >
-            <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
+            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> {{cityText}}{{districtText}} </view>
             </view>
           
         </view>
  <view class="middle_view" >
-            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
+            <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> {{jobExperienceText}} </view>
             </view>
@@ -91,7 +91,7 @@
         </view>
 
       
-      <view wx:else><text>没有更多内容了</text></view>
+      <view wx:if="{{showText}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;"><text>没有更多职位了</text></view>
     </view>
 </view>
 

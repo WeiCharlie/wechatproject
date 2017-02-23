@@ -1,4 +1,4 @@
 {
-    "navigationBarTitleText": "求职意向"
-    
+    "navigationBarTitleText": "求职意向",
+    "enablePullDownRefresh": false
 }

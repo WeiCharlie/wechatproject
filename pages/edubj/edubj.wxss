@@ -47,6 +47,9 @@
   float: left;
   align-items: inherit;
    line-height: 30px;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .con_edu_text{
   font-size: 12px;

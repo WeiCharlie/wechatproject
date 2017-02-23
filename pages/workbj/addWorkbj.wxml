@@ -1,133 +1,100 @@
+
 <!--pages/workbj/addWorkbj.wxml-->
-<scroll-view class="myScrollView">
-    <view class="cellType0" >
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 公司名称 </view>
-            </view>
-             
-            <input  placeholder="请输入公司名称" class="input0">
-            </input>
-    </view>
-
-
-    <picker mode="date"  bindchange="bindDateBegin">
-        <view class="cellType0" >
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 任职时间（开始） </view>
-            </view>
-
-            <view class="weui_cell_bd2">
-                <view class="rightView"> {{beginDate}} </view>
-            </view>
-
-            <image class="with_arrow" src="/images/jian_r.png"></image>
-        </view>
-    </picker>
-
-
-    <picker mode="date"  bindchange="bindDateEnd">
-        <view class="cellType1">
-                <view class="weui_cell_bd">
-                    <view class="weui_cell_bd_p"> 任职时间（结束） </view>
-                </view>
-
-                <view class="weui_cell_bd2">
-                    <view class="rightView"> {{endDate}} </view>
-                </view>
-
-                <image class="with_arrow" src="/images/jian_r.png"></image>
-                
-        </view>
-    </picker>
-
-
-
-
-    <view class="sepColorView">
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 公司信息 </view>
-            </view>
-    </view>
-
-
-
+<form bindsubmit="sureClick">
+  <view class="myScrollView">
+    <!--<input type="text" style="display:none" name="rid" value="{{rid}}" />-->
     <view class="cellType0">
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 行业类别 </view>
-            </view>
-            <image class="with_arrow" src="/images/jian_r.png"></image>
-            
+      <view class="weui_cell_bd">
+        <view class="weui_cell_bd_p"> 公司名称 </view>
+      </view>
+      <input name="company" placeholder="请输入公司名称" value="{{company}}" class="input0">
+      </input>
     </view>
-
+    <picker start="{{startDatelimit}}" end="{{endDatelimit}}" name="beginDate" value="{{beginDate}}" mode="date" bindchange="bindDateBegin" fields="month">
+      <view class="cellType0">
+        <view class="weui_cell_bd">
+          <view class="weui_cell_bd_p"> 任职时间（开始） </view>
+        </view>
+        <view class="weui_cell_bd2">
+          <view class="rightView"> {{beginDateTemp}} </view>
+        </view>
+        <image class="with_arrow" src="/images/jian_r.png"></image>
+      </view>
+    </picker>
+    <picker start="{{startDatelimit}}" end="{{endDatelimit}}" name="endDate" value="{{endDate}}" mode="date" bindchange="bindDateEnd" fields="month">
+      <view class="cellType1">
+        <view class="weui_cell_bd">
+          <view class="weui_cell_bd_p"> 任职时间（结束） </view>
+        </view>
+        <view class="weui_cell_bd2">
+          <view class="rightView"> {{endDateTemp}} </view>
+        </view>
+        <image class="with_arrow" src="/images/jian_r.png"></image>
+      </view>
+    </picker>
+    <view class="sepColorView">
+      <view class="weui_cell_bd">
+        <view class="weui_cell_bd_p"> 公司信息 </view>
+      </view>
+    </view>
+    <view class="cellType0">
+      <view class="weui_cell_bd">
+        <view class="weui_cell_bd_p"> 行业类别 </view>
+      </view>
+      <image class="with_arrow" src="/images/jian_r.png"></image>
+    </view>
+    <input type="text" style="display:none" name="eScale" value="{{companySizeKey}}" />
     <navigator url="/pages/workbj/addCompanySize">
-        <view class="cellType1">
-                <view class="weui_cell_bd">
-                    <view class="weui_cell_bd_p"> 公司规模 </view>
-                </view>
-
-                <view class="weui_cell_bd2">
-                    <view class="rightView"> {{companySizeValue}} </view>
-                </view>
-                <image class="with_arrow" src="/images/jian_r.png"></image>
-
+      <view class="cellType1">
+        <view class="weui_cell_bd">
+          <view class="weui_cell_bd_p"> 公司规模 </view>
         </view>
+        <view class="weui_cell_bd2">
+          <view class="rightView"> {{companySizeValue}} </view>
+        </view>
+        <image class="with_arrow" src="/images/jian_r.png"></image>
+      </view>
     </navigator>
-
-
     <view class="sepColorView">
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 职位信息 </view>
-            </view>
+      <view class="weui_cell_bd">
+        <view class="weui_cell_bd_p"> 职位信息 </view>
+      </view>
     </view>
-
-
     <view class="cellType0">
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 职位类别 </view>
-            </view>
-            <image class="with_arrow" src="/images/jian_r.png"></image>
-            
+      <view class="weui_cell_bd">
+        <view class="weui_cell_bd_p"> 职位类别 </view>
+      </view>
+      <image class="with_arrow" src="/images/jian_r.png"></image>
     </view>
-
-
-
-
-    <view class="cellType0" >
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 职位名称 </view>
-            </view>
-             
-            <input  placeholder="请输入公司名称" class="input0">
-            </input>
+    <view class="cellType0">
+      <view class="weui_cell_bd">
+        <view class="weui_cell_bd_p"> 职位名称 </view>
+      </view>
+      <input name="positionName" placeholder="请输入职位名称" value="{{positionName}}" class="input0">
+      </input>
     </view>
-
+    <input type="text" style="display:none" name="salary" value="{{salaryKey}}" />
     <navigator url="/pages/workbj/addSalary">
-    <view class="cellType0">
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 职位薪资（税前） </view>
-            </view>
-
-            <view class="weui_cell_bd2">
-                <view class="rightView"> {{salaryValue}} </view>
-            </view>
-            <image class="with_arrow" src="/images/jian_r.png"></image>
-    </view>
+      <view class="cellType0">
+        <view class="weui_cell_bd">
+          <view class="weui_cell_bd_p"> 职位薪资（税前） </view>
+        </view>
+        <view class="weui_cell_bd2">
+          <view class="rightView"> {{salaryValue}} </view>
+        </view>
+        <image class="with_arrow" src="/images/jian_r.png"></image>
+      </view>
     </navigator>
-
-
+    <input type="text" style="display:none" name="jobContent" value="{{jobDiscr}}" />
     <navigator url="/pages/workbj/addWorkSummary?jobDiscr={{jobDiscr}}">
-    <view class="cellType1">
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> 工作描述 </view>
-            </view>
-
-            <image class="with_arrow" src="/images/jian_r.png"></image>
-            
-    </view>
+      <view class="cellType1">
+        <view class="weui_cell_bd">
+          <view class="weui_cell_bd_p"> 工作描述 </view>
+        </view>
+        <image class="with_arrow" src="/images/jian_r.png"></image>
+      </view>
     </navigator>
-
-
-
-    <button class="sureBtn" formType="submit" style="color:white"> 保    存       </button> 
-
-</scroll-view>
+    <button class="sureBtn" formType="submit" style="color:white"> 保 存 </button>
+  </view>
+  <loading hidden="{{hiddenLoading}}">正在加载...</loading>
+</form>

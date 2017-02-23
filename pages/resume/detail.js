@@ -1,16 +1,21 @@
 var app = getApp();
-var path = app.getpath + '/resume/selectUserJobResumeByPage';
+var path = app.getpath + '/resume/lectUserJobResumeByPage';
+var utils = require('../../utils/util.js');
 Page({
-  data:{
+  data: {
     resmeDetail: null,
     imgUrl: null,
-    dictionary: null
+    dictionary: null,
+    birthday: utils.formatMonth(new Date()),
+    hiddenLoading: false
   },
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
+  onLoad: function (options) {
     var that = this
-    var uid = options.uid
-    uid = uid > 0 ? uid : 4
+    var user = wx.getStorageSync('User')
+    var uid = user.uid
+    that.setData({
+      uid: uid
+    })
     if(uid > 0) {
       ResumeDetial(that, uid)
     } else {
@@ -18,48 +23,41 @@ Page({
         url: '/pages/login/login'
       })
     }
-  },
-  setPhotoInfo: function(){
-    var that = this
-    wx.chooseImage({
-      count: 1, // 最多可以选择的图片张数，默认9
-      sizeType: ['original', 'compressed'], // original 原图，compressed 压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
-      success: function(res){
-        // success
-        var tempFilePaths = res.tempFilePaths
-        that.setData({
-          imgUrl:tempFilePaths
-        })
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      that.setData({
+        imgUrl: userInfo.avatarUrl
+      })
     })
   },
-	onPullDownRefresh: function () {
-		wx.stopPullDownRefresh()
-	}
+  onShow:function(){
+    // 页面显示
+    var that = this
+
+  },
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
+  }
 })
 var ResumeDetial = function (that, uid) {
   wx.request({
     url: path,
-    data: {uid: 4},
-    success: function(res){
+    data: { uid: uid },
+    success: function (res) {
       // success
-      if(res.data.code == 0) {
+      if (res.data.code == 0 && res.data.result != null) {
+        var detail = res.data.result
         that.setData({
-          resmeDetail: res.data.result[0]
+          resmeDetail: detail,
+          birthday: utils.splitDate(detail.jobUserInfo.birthday),
+          hiddenLoading: true
         })
       }
     },
-    fail: function() {
+    fail: function () {
       // fail
     },
-    complete: function() {
+    complete: function () {
       // complete
     }
   })

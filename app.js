@@ -7,13 +7,12 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     this.dictionaryData()
-    wx.setStorageSync('userId', '7')
-    wx.setStorageSync('userName', '测试')
+    this.getLocationfun();
   },
-  getpath:'https://www.mofajiaoyu.com',
-  getUserInfo:function(cb){
+  getpath: 'https://www.mofajiaoyu.com',
+  getUserInfo: function (cb) {
     var that = this
-    if(this.globalData.userInfo) {
+    if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
       //调用登录接口
@@ -29,24 +28,44 @@ App({
       })
     }
   },
-  dictionaryData:function(){
-    wx.request({
-      url: this.getpath + '/dictionary/getList',
-      success: function(res){
-        wx.setStorageSync('dictionary', res.data.result)
+  getLocationfun: function () {
+    var that = this
+    wx.getLocation({
+      type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
+      success: function (res) {
+        // success
+        that.globalData.latitude = res.latitude
+        that.globalData.longitude = res.longitude
+
       },
-      fail: function() {
+      fail: function () {
         // fail
       },
-      complete: function() {
+      complete: function () {
         // complete
       }
     })
   },
-  globalData:{
-    userInfo:null,
-    citydata:{cityname:null,cityid:null},//职位筛选城市
-    peopledata:{cityname:null,cityid:null},//个人信息户口所在地城市
-    educationdata:{cityname:null,cityid:null}//求职地点
+  dictionaryData: function () {
+    wx.request({
+      url: this.getpath + '/dictionary/getList',
+      success: function (res) {
+        wx.setStorageSync('dictionary', res.data.result)
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
+      }
+    })
+  },
+  globalData: {
+    latitude: "",
+    longitude: "",
+    userInfo: null,
+    citydata: { cityname: null, cityid: null },//职位筛选城市
+    peopledata: { cityname: null, cityid: null },//个人信息户口所在地城市
+    educationdata: { cityname: null, cityid: null }//求职地点
   }
 })

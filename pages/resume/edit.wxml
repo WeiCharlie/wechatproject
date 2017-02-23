@@ -1,6 +1,6 @@
 <scroll-view>
     <view class="information">
-        <navigator url="/pages/resume/information">
+        <navigator url="/pages/resume/information?uid={{uid}}&rid={{rid}}&name={{resmeDetail.name}}">
             <view class="info">
                 个人信息<span>*</span>
                 <view class="img"><image src="/images/jian_r.png"/></view>
@@ -29,7 +29,7 @@
         </view>
     </view>
     <view class="information">
-        <navigator url="/pages/resume/job_intention">
+        <navigator url="/pages/jobIntention_detail/jobIntention_detail?rid={{rid}}">
             <view class="info">
                 求职意向<span>*</span>
                 <view class="img"><image src="/images/jian_r.png"/></view>
@@ -49,7 +49,7 @@
         </view>
     </view>
     <view class="information">
-        <navigator url="/pages/edubj/edubj?id={{resmeDetail.id}}">
+        <navigator url="/pages/edubj/edubj?id={{rid}}">
             <view class="info">
                 教育经历<span>*</span>
                 <view class="img"><image src="/images/jian_r.png"/></view>
@@ -70,7 +70,7 @@
         </view>
     </view>
     <view class="information">
-        <navigator url="/pages/workbj/workbj?id={{resmeDetail.id}}">
+        <navigator url="/pages/workbj/workbj?id={{rid}}">
             <view class="info">
                 工作经历
                 <view class="img"><image src="/images/jian_r.png"/></view>
@@ -91,7 +91,7 @@
         </view>
     </view>
     <view class="information">
-        <navigator url="/pages/resume/personal_evaluation?id={{resmeDetail.id}}&evaluation={{resmeDetail.evaluation}}">
+        <navigator url="/pages/resume/personal_evaluation?id={{rid}}&evaluation={{resmeDetail.evaluation}}">
             <view class="info">
                 个人评价
                 <view class="img"><image src="/images/jian_r.png"/></view>
@@ -109,5 +109,5 @@
         </view>
     </view>
     <view class="line"></view>
-    <loading hidden="{{hiddenLoading}}">正在加载</loading>
+    <loading hidden="{{hiddenLoading}}">正在加载...</loading>
 </scroll-view>

@@ -58,6 +58,16 @@ function splitDate(val) {
 }
 
 /**
+ * 时间字符分割
+ * retun []
+ */
+function arraySplitDate(val) {
+  var strs = new Array()
+  strs = val.split("-")
+  return strs
+}
+
+/**
  * 字符截取
  * val：要截取的字符 length:截取的长度
  */
@@ -77,8 +87,8 @@ function verifyPhoneNumber(n) {
  * 身份证验证
  */
 function verifyCard(n) {
-    var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
-    return reg.test(n)
+  var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+  return reg.test(n)
 }
 
 /**
@@ -89,14 +99,25 @@ function verifyEmail(n) {
   return szreg.test(n)
 }
 
+/**
+ * 计算工作时间
+ */
+function experience(date) {
+  var time = (new Date().getTime() - new Date(date).getTime()) / (24 * 60 * 60 * 1000 * 365);
+  time = time > 1 ? time : 1;
+  return Math.round(time);
+}
+
 module.exports = {
   formatTime: formatTime,
   formatMonth: formatMonth,
   formatDate: formatDate,
   formatDate_: formatDate_,
   splitDate: splitDate,
+  arraySplitDate: arraySplitDate,
   subString: subString,
   verifyPhoneNumber: verifyPhoneNumber,
   verifyCard: verifyCard,
-  verifyEmail: verifyEmail
+  verifyEmail: verifyEmail,
+  experience: experience
 }

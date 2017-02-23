@@ -18,7 +18,17 @@ var getMoreList=function(that){
         // header: {}, // 设置请求的 header
         success: function(res){
           // success
-          // console.log(res.data.result)
+          if(res.data.result !=null && res.data.result.length>9){
+            
+            that.setData({
+            hasMore:true
+            });
+          }else{
+             that.setData({
+            showText:true
+            });
+            
+          }
           that.setData({newsList:res.data.result});
         },
         fail: function() {
@@ -37,7 +47,8 @@ Page({
     imageUrls :[],
       newsList:[],
   hiddenLoading:false,
-  hasMore:true,
+  hasMore:false,
+  showText:false,
      hasRefesh:false,
    indicatorDots: true,  
     autoplay: true,  
@@ -87,7 +98,7 @@ Page({
     },
     onReachBottom:function(){
    var that = this;
- 
+
     page++;
         wx.request({
         url: path,
@@ -110,14 +121,19 @@ Page({
           if(res.data.result.length <10){
             that.setData({
               hasMore :false,
-              hasRefesh:false
+              hasRefesh:false,
+              showText:true
             });
           }
         
         },
         fail: function() {
           // fail
-           console.log('fail')
+           wx.showToast({
+    title: "网络连接异常，请检查网络",
+    icon: 'fail',
+    duration: 2000
+  })
         },
         complete: function() {
           // complete

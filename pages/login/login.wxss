@@ -1,124 +1,55 @@
-.phoneNumberInput{
-    position: relative;
-    display: flex;
-    padding: 5px;
-     width: 90%;
-    /*-webkit-box-align: center;*/
-    /*-ms-flex-align: center;*/
-    /*align-items: center;*/
-    border-bottom: 1px solid #dadada;
-
-    
-
-
-}
-.phoneLabelBG{
-
-    
-    padding-left: 2px;
-
+.phoneNumberInput {
+  position: relative;
+  display: flex;
+  padding: 0 10px;
+  border-bottom: 1px solid #eee;
+  height: 40px;
+  line-height: 40px;
 }
 
-.phoneLabel{
-     font-size: 16px;
-
-     margin-top: 13px;
-
-     
-
-
-     
-
-
-}
-.phoneInput{
-
-    margin-top: 9px;
-
-    font-size: 16px;
-    padding-left: 10px;
-    
-    
-
-
-
-
-
-
-
-    
-   
-
-
-
+.viewback {
+  margin-top: 15px;
+  background: #fff;
 }
 
-.getSecurityCode
-{
-    
-    font-size: 16px;
-
-    text-align: center;
-
-
-    width: 110px;
-
-
-    height: 40px;
-
-
-
-
-    
-
-
-
+.phoneLabelBG {
+  padding-left: 2px;
 }
 
-.securityCodeInput{
-    position: relative;
-    display: inline-flex;
-    padding: 10px;
-    width: 89%;
-
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border-bottom: 1px solid #dadada;
-
+.phoneLabel {
+  font-size: 14px;
+  margin-top: 13px;
 }
 
-.securityLabelBG
-{
- 
-   font-size: 16px;
-   padding-left: -1px;
-
-
-
-    
-}
-.securityInput{
-
-    font-size: 16px;
-    
-    padding-left: 10px;
-
-
-}
-.loginBtn{
-
-    margin-top: -30px;
-
-    width: 50%;
-    
-
-    
-
-
+.phoneInput {
+  font-size: 14px;
+  height: 40px;
 }
 
+.getSecurityCode {
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  width: 100px;
+  float: right;
+  position: fixed;
+  right: 10px;
+  top: 20px;
+}
 
+.securityLabelBG {
+  font-size: 14px;
+  padding-left: -1px;
+}
 
+.securityInput {
+  font-size: 14px;
+  padding-left: 10px;
+  height: 40px;
+}
 
-
+.loginBtn {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+}

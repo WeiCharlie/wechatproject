@@ -3,7 +3,8 @@ var app = getApp()
 var path = app.getpath + '/enterpriseInfo/selectByEnterDetail';
 Page({
   data:{
-    companydatil: null
+    companydatil: null,
+    hiddenLoading: false
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -31,8 +32,10 @@ var Companydatil = function(that, eid) {
       eid: eid
     },
     success: function(res){
+      console.log(res.data)
       that.setData({
-        companydatil: res.data.result
+        companydatil: res.data.result,
+        hiddenLoading: true
       })
     },
     fail: function() {

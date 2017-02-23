@@ -1,22 +1,27 @@
 // pages/resume/information.js
 var app = getApp();
 var path = app.getpath + '/resume/selectJobUserInfo';
-var Util = require( '../../utils/util.js');
+var updateJobUserInfo = app.getpath + "/resume/updateJobUserInfo";
+var addJobUserInfo = app.getpath + "/resume/addJobUserInfo";
+var microResume = app.getpath + "/resume/microResume";
+var Util = require('../../utils/util.js');
 var tcity = require("../../utils/citys.js");
 Page({
-  data:{
-    information:{},
+  data: {
+    information: {},
     imgUrl: null,
-    rightimg:'/images/jian_r.png',
-    startDate: '1977-01-01',
+    rightimg: '/images/jian_r.png',
+    startDate: '1970-01-01',
     endDate: Util.formatDate_(new Date()),
-    bdate: '',
-    jdate: '',
-    birthdays: Util.formatDate_(new Date()),
-    joinJobDates: Util.formatDate_(new Date()),
-    byears: Util.formatMonth(new Date()),
-    jyears: Util.formatMonth(new Date()),
+    bdate: Util.formatDate_(new Date()),//上传的出生日期格式xxxx-xx-xx
+    jdate: Util.formatMonth(new Date()),//上传的工作时间格式xxxx-xx-x
+    birthdays: Util.formatDate_(new Date()),//弹出出生日期
+    joinJobDates: Util.formatDate_(new Date()),//弹出工作时间
+    byears: Util.formatMonth(new Date()),//显示出生日期
+    jyears: Util.formatMonth(new Date()),//显示工作时间
     hiddenLoading: true,
+    hiddenLoaded: false,
+    isAdd: false,
     registryText: "",
     registry: "",
     cityId: "",
@@ -28,62 +33,80 @@ Page({
     countys: [],
     county: '',
     value: [0, 0, 0],
-    values: [0, 0, 0]
+    values: [0, 0, 0],
+    uid: 0,
+    rid: 0,
+    name: ''
   },
-  onLoad:function(options){
+  onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
     var uid = options.uid
     uid = uid > 0 ? uid : 7
-    app.getUserInfo(function(userInfo){
-        //更新数据
-          that.setData({
-            imgUrl:userInfo.avatarUrl
-          })
+    that.setData({
+      uid: uid,
+      rid: options.rid,
+      name: options.name
+    })
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      that.setData({
+        imgUrl: userInfo.avatarUrl
+      })
     })
     lodingCity(that)
     Information(that, uid)
   },
-  onReady:function(){
+  onReady: function () {
     // 页面渲染完成
   },
-  onShow:function(){
+  onShow: function () {
     // 页面显示
     var that = this
-    if(app.globalData.peopledata.cityid != null) {
+    if (app.globalData.peopledata.cityid != null) {
       that.setData({
         registryText: app.globalData.peopledata.cityname,
         registry: app.globalData.peopledata.cityid
       })
     }
   },
-  onHide:function(){
+  onHide: function () {
     // 页面隐藏
   },
-  onUnload:function(){
+  onUnload: function () {
     // 页面关闭
   },
-  bindBirthdayChange: function(e) {
+  bindBirthdayChange: function (e) {
     var that = this
     var val = e.detail.value
     that.setData({
-      bdate: val,
+      bdate: val + "-01",
+      birthdays: val,
       byears: Util.splitDate(val)
     })
   },
-  bindJoinJobDateChange: function(e) {
-      var that = this
-      var val = e.detail.value
-      that.setData({
-        jdate: val,
-        jyears: Util.splitDate(val)
-      })
+  bindJoinJobDateChange: function (e) {
+    var that = this
+    var val = e.detail.value
+    that.setData({
+      jdate: val + "-01",
+      joinJobDates: val,
+      jyears: Util.splitDate(val)
+    })
   },
-  formSubmit:function(e) {
+  formSubmit: function (e) {
     var formData = e.detail.value
     var that = this
+    var isAdd = that.data.isAdd
+    if (formData.name == "") {
+      wx.showModal({
+        title: '姓名不能为空',
+        showCancel: false
+      })
+      return
+    }
     //手机验证
-    if(!Util.verifyPhoneNumber(formData.iphone)) {
+    if (!Util.verifyPhoneNumber(formData.iphone)) {
       wx.showModal({
         title: '手机号输入有误',
         showCancel: false
@@ -91,7 +114,7 @@ Page({
       return
     }
     //身份证号验证
-    if(Util.verifyCard(formData.card) == false){
+    if (Util.verifyCard(formData.card) == false) {
       wx.showModal({
         title: '身份证号输入有误',
         showCancel: false
@@ -99,7 +122,7 @@ Page({
       return
     }
     //邮箱验证
-    if(Util.verifyEmail(formData.email) == false){
+    if (Util.verifyEmail(formData.email) == false) {
       wx.showModal({
         title: '邮箱输入有误',
         showCancel: false
@@ -109,44 +132,65 @@ Page({
     that.setData({
       hiddenLoading: false
     })
+
+    var url = isAdd ? addJobUserInfo : updateJobUserInfo
+    var name = that.data.name != '' ? that.data.name : formData.name + "的简历"
     wx.request({
-      url: app.getpath + "/resume/updateJobUserInfo",
+      url: url,
       data: formData,
-      header: {'content-Type': 'application/json;charset=UTF-8;'},
+      header: { 'content-Type': 'application/json;charset=UTF-8;' },
       method: 'POST',
-      success: function(res){
-        // success
-        that.setData({
-          hiddenLoading: true
+      success: function (res) {
+        wx.request({
+          url: microResume,
+          data: {
+            id: that.data.rid,
+            resumeName: name,
+            uid: that.data.uid
+          },
+          header: {'Content-Type': 'application/x-www-form-urlencoded'},
+          method: 'POST',
+          success: function (res) {
+            console.log(res.data)
+            that.setData({
+              hiddenLoading: true
+            })
+            wx.navigateBack()
+          },
+          fail: function () {
+            // fail
+          },
+          complete: function () {
+            // complete
+          }
         })
-        wx.navigateBack()
       },
-      fail: function() {
+      fail: function () {
         // fail
       },
-      complete: function() {
+      complete: function () {
         // complete
       }
     })
   },
-  changePlace:function(e){
+  changePlace: function (e) {
     wx.navigateTo({
       url: '/pages/switchcity/switchcity?urltypecode=2'
     })
   },
-  changeCity:function(e) {
+  changeCity: function (e) {
     this.setData({
       condition: !this.data.condition,
     })
   },
-  changeCitySure:function(e) {
+  changeCitySure: function (e) {
     var provinceCode = this.data.province.code ? this.data.province.code + "," : ""
     var cityCode = this.data.city.code ? this.data.city.code + "," : ""
     var countyCode = this.data.county.code ? this.data.county.code : ""
     var provinceName = this.data.province.name ? this.data.province.name : ""
     var cityName = this.data.city.name ? this.data.city.name : ""
     var countyName = this.data.county.name ? this.data.county.name : ""
-    if(provinceName == cityName) {
+    if (provinceName == cityName) {
       cityName = ""
     }
     this.setData({
@@ -205,32 +249,41 @@ Page({
 var Information = function (that, uid) {
   wx.request({
     url: path,
-    data: {uid: uid},
-    success: function(res){
-      if(res.data.code == 0) {
-        var results = res.data.result
+    data: { uid: uid },
+    success: function (res) {
+      var results = res.data.result
+      if (res.data.code == 0) {
         that.setData({
           information: results,
-          birthdays: Util.subString(results.birthday, 10) ,
-          joinJobDates: Util.subString(results.joinJobDate, 10) ,
+          birthdays: Util.subString(results.birthday, 7),
+          joinJobDates: Util.subString(results.joinJobDate, 7),
+          bdate: Util.subString(results.birthday, 10),
+          jdate: Util.subString(results.joinJobDate, 10),
           byears: Util.splitDate(results.birthday),
           jyears: Util.splitDate(results.joinJobDate),
           registryText: results.registryText,
           registry: results.registry,
           cityText: results.cityText,
-          cityId: results.city
+          cityId: results.city,
+          isAdd: false
+        })
+      } else {
+        that.setData({
+          isAdd: true
         })
       }
     },
-    fail: function() {
+    fail: function () {
       // fail
     },
-    complete: function() {
-      // complete
+    complete: function () {
+      that.setData({
+        hiddenLoaded: true
+      })
     }
   })
 }
-var lodingCity = function(that) {
+var lodingCity = function (that) {
   tcity.init(that);
   var cityData = that.data.cityData;
   const provinces = [];

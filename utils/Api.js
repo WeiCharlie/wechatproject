@@ -23,9 +23,9 @@ function fetchPost(action, data, callback){
     wx.request({
       url: HOST + action,
       data: data,
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+     
       // header: {}, // 设置请求的 header
-       header:{'Content-type': 'application/json'},
+       header:{'Content-type': 'application/json;charset=UTF-8;'},
       success (res){
           callback(null, res.data)
       },

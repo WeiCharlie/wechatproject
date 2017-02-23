@@ -1,13 +1,14 @@
 <!--pages/resume/detail.wxml-->
-<scroll-view>
+<scroll-view style="height:100%;">
     <view class="panel">
-        <image src="{{resmeDetail.jobUserInfo.imgPath}}" />
+        <image wx:if="{{resmeDetail.jobUserInfo.imgPath != null}}" src="{{resmeDetail.jobUserInfo.imgPath}}" />
+        <image wx:else src="{{imgUrl}}" />
         <view class="shortInfo">{{resmeDetail.jobUserInfo.name}}</view>
         <view class="shortInfo">
             <text wx:if="{{resmeDetail.jobUserInfo.sex == 1}}">男</text>
             <text wx:else>女</text>　
             {{resmeDetail.jobUserInfo.age}}　
-            3年工作经验
+            {{resmeDetail.jobUserInfo.joinJobDateYear}}年工作经验
         </view>
     </view>
     <view class="panel1 mg-t">
@@ -31,7 +32,7 @@
         </view>
         <view class="info-row">
             <text class="row-l">出生日期</text>
-            <text class="row-r">{{resmeDetail.jobUserInfo.birthday}}</text>
+            <text class="row-r">{{birthday}}</text>
         </view>
         <view class="info-row">
             <text class="row-l">户　　口</text>
@@ -43,7 +44,7 @@
         </view>
         <view class="info-row">
             <text class="row-l">工作经验</text>
-            <text class="row-r">1年</text>
+            <text class="row-r">{{resmeDetail.jobUserInfo.joinJobDateYear}}年</text>
         </view>
         <view class="info-row" style="border-bottom:none;">
             <text class="row-l">学　　历</text>
@@ -155,4 +156,5 @@
             </block>
         </view>
     </view>
+    <loading hidden="{{hiddenLoading}}">正在加载...</loading>
 </scroll-view>

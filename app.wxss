@@ -66,8 +66,14 @@ page{
   background-color: red;
 }
 
-.citypicker{
-  
+.citypicker1{
+    top:0;
+    background: #000;
+    position:absolute;
+    z-index:1;
+    width:100%;
+    height:100%;
+    opacity:0.5;
 }
 .citybody {
   position: fixed;

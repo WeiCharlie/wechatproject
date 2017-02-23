@@ -1,3 +1,4 @@
+<scroll-view>
 <view class="content">
     <image src="{{companydatil.logo}}" />
     <view class="site">{{companydatil.site}}</view>
@@ -16,3 +17,5 @@
     <view class="c-title2"><image src="/images/btn_dingwei.png" />公司地址</view>
     <view class="c-title3">{{companydatil.address}}</view>
 </view>
+<loading hidden="{{hiddenLoading}}">正在加载...</loading>
+</scroll-view>

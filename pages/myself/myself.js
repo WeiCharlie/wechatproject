@@ -1,30 +1,12 @@
 var app = getApp()
+var uid='';
+
 Page({
   data: {
     userInfo: {},
+    uname:'',
+    img:'',
     rightimg:'/images/jian_r.png',
-    userListInfo: [ {
-      icon: '/images/myorder.png',
-      text: '简历预览',
-      link:'/pages/resume/detail',
-      isunread: true
-  
-    }, {
-        icon: '/images/myresume.png',
-        text: '简历编辑',
-          link:'/pages/resume/edit',
-        isunread: false
-  
-      },  {
-        icon: '/images/myjobwanted.png',
-          link:'/pages/myjob/myjob',
-        text: '我的求职'
-        
-      },{
-        icon: '/images/myhelp.png',
-          link:'/pages/aboutus/aboutus',
-        text: '关于我们'
-      }]
   },
   onLoad: function () {  
       //onload 进入页面加载
@@ -41,9 +23,7 @@ Page({
           })
     })
   }, 
-  getInfoimage:function(){
-
-  },
+ 
     setIcon:function(){
       var that = this
       wx.chooseImage({
@@ -63,36 +43,73 @@ Page({
         }
       })
   },
-  listtouch:function(e){
-    
-  var num=  e.target.id;
-   var path;
-   
-  switch(num){
-    case '0':
-     path='/pages/aboutUs/aboutus';
-    break;
-    
-    case '1':
-     path="../pages/jobwanted/jobwanted";
-    break;
 
-     case '2':
-        path="../pages/jobwanted/jobwanted";
-    break;
-  
-     case '3':
-       path="../pages/jobwanted/jobwanted";
-    break;
+   onShow: function () {
+    var that = this
 
-     case '4':
-      path="../pages/aboutUs/aboutus";
-    break;
-  }
+    // 页面显示
+    var user = wx.getStorageSync('User');
+    if (user == null || user == "") {
+      uid = 0;
+      that.setData({
+        uname:'',
+        img:''
+      })
+       
+    } else {
+      uid = user.uid;
+      that.setData({
+        uname: user.uname,
+        img:user.img
+      })
+        
+    }
+
  
-  wx.navigateTo({
-    url: path
-   
-  });
-  }
+  },
+  resumeclass:function(e){
+    var path='';
+    if(uid ==0){
+      path='/pages/login/login';
+    
+    }else{
+       path='/pages/resume/detail'; 
+    }
+     wx.navigateTo({
+       url: path
+    })
+
+   },
+   resumeeditclass:function(e){
+        
+         var path='';
+    if(uid ==0){
+      path='/pages/login/login';
+    
+    }else{
+       path='/pages/resume/edit'; 
+    }
+     wx.navigateTo({
+       url: path
+    })
+   },
+   jobclass:function(e){
+
+      var path='';
+    if(uid ==0){
+      path='/pages/login/login';
+    
+    }else{
+       path='/pages/myjob/myjob'; 
+    }
+     wx.navigateTo({
+       url: path
+    })
+   },
+   aboutclass:function(e){
+       wx.navigateTo({
+       url: '/pages/aboutus/aboutus'
+    })
+     
+   }
 })

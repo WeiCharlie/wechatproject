@@ -13,7 +13,7 @@ page{
 
 .cellType0{
     position: relative;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
     display: flex;
     padding: 15px;
     -webkit-box-align: center;
@@ -25,7 +25,7 @@ page{
 
 .cellType1{
     position: relative;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
     display: flex;
     padding: 15px;
     -webkit-box-align: center;
@@ -47,7 +47,7 @@ page{
 .input0{
     position: absolute;
   right: 15px;
-  text-align: center;
+  text-align: right;
  font-size: 12px;
  color: #939393;
   height: 15px;

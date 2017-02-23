@@ -4,47 +4,44 @@
    <view class="item">
        <view class="item_doci">
          
-          <image src="/images/resume_circle.png"                               class="item_doci_image"></image>
-          <image src="/images/resume_circle.png"
-              class="item_doci_image"></image>
-          <image src="/images/resume_circle.png"
-               class="item_doci_image"></image>
-          <image src="/images/resume_circle.png"
-               class="item_doci_image"></image>
+          <image src="/images/resume_circle.png" class="item_doci_image"></image>
+          <image src="/images/resume_circle.png" class="item_doci_image"></image>
+          <image src="/images/resume_circle.png" class="item_doci_image"></image>
+          <image src="/images/resume_circle.png" class="item_doci_image"></image>
        </view>
        <view class="item_cont">
            <view class="cont_title">
-              <view class="cont_title_biru">
-                <image src="/images/resumepage_btn_education.png" 
-                class="con_edu_image"></image>
-                <view class="con_title_text">{{schoolName}}
+                <view class="cont_title_biru">
+                    <image src="/images/resumepage_btn_education.png" 
+                    class="con_edu_image"></image>
+                    <view class="con_title_text">{{company}}</view>
                 </view>
-                </view>
-                <view class="con_title_time">{{enrollmentDate}}</view>      
+
+                <!--<view class="con_title_time">{{}}</view>-->
+
            </view>
            <view class="cont_edu">
-            <image src="/images/resumepage_btn_industry.png"                  class="con_edu_image"></image>
-            <view class="con_edu_text">{{degreeText}}</view> 
+                <image src="/images/resumepage_btn_industry.png" class="con_edu_image"></image>
+                <view class="con_edu_text">{{positionName}}</view> 
            </view>
            <view class="cont_deg">
-             <image src="/images/resumepage_btn_professional.png"          class="con_edu_image"></image> 
-             <view class="con_edu_text">{{specialfieldName}}</view> 
+             <image src="/images/resumepage_btn_professional.png" class="con_edu_image"></image> 
+             <view class="con_edu_text">{{beginDateTemp}} ~ {{endDateTemp}}</view> 
            </view>
        </view>
     </view> 
-    </template >
+</template >
 
-     <!--列表 循环 start-->
-        <view wx:for="{{EduListData}}">
-        <template is="lists" data="{{...item}}"/>
 
+    <!--列表 循环 start-->
+    <view wx:for="{{workListData}}" bindlongtap="mylongtap"  data-idIndex="{{index}}" data-list="{{workListData}}">
+        <template is="lists" data="{{...item}}" />
     </view>
-
     
    <view class ="addbutn">
-  <navigator url="/pages/workbj/addWorkbj">
-    <view class="add">添加更多工作经历</view>
-   </navigator>
+        <navigator url="/pages/workbj/addWorkbj?rid={{rid}}">
+            <view class="add">添加更多工作经历</view>
+        </navigator>
    </view>
   
 </view>

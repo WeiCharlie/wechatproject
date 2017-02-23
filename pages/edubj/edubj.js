@@ -33,10 +33,12 @@ Page({
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var that=this
+    rid=options.id;
+    console.log(that.data)
     wx.getSystemInfo({
         success: function(res) {
-            that.setData({width:res.windowWidth,height:res.windowHeight,
-             rid:options.id
+            that.setData({width:res.windowWidth,height:res.windowHeight
+           
           
             })
            

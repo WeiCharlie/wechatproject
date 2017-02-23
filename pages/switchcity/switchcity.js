@@ -28,9 +28,9 @@ Page({
     var itemH = winHeight / searchLetter.length;
     var tempObj = [];
     cityname = app.globalData.citydata.cityname;
-    if (cityname=="" || cityname==null){
+    if (cityname == "" || cityname == null) {
       this.setData({ city: '北京市' })
-    }else{
+    } else {
       this.setData({ city: cityname })
     }
     console.log(cityname);
@@ -90,17 +90,17 @@ Page({
   },
   //选择城市
   bindCity: function (e) {
-     cityname = e.currentTarget.dataset.city;
-     cityid = e.currentTarget.dataset.citycode;
-     if(urltypecode==1){
-app.globalData.citydata = {cityname:cityname,cityid:cityid};
-     }else if(urltypecode==2){
-app.globalData.peopledata = {cityname:cityname,cityid:cityid};
-     }else{
-app.globalData.educationdata = {cityname:cityname,cityid:cityid};
-     }
-     this.setData({ city: e.currentTarget.dataset.city })
-     wx.navigateBack()
+    cityname = e.currentTarget.dataset.city;
+    cityid = e.currentTarget.dataset.citycode;
+    if (urltypecode == 1) {
+      app.globalData.citydata = { cityname: cityname, cityid: cityid };
+    } else if (urltypecode == 2) {
+      app.globalData.peopledata = { cityname: cityname, cityid: cityid };
+    } else {
+      app.globalData.educationdata = { cityname: cityname, cityid: cityid };
+    }
+    this.setData({ city: e.currentTarget.dataset.city })
+    wx.navigateBack()
   },
   //点击热门城市回到顶部
   hotCity: function () {

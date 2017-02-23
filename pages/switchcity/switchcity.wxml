@@ -11,8 +11,8 @@
       {{showLetter}}
     </view>
   </block>
-  <view class="hotcity-common thisCity">当前选择城市</view>
-  <view class="thisCityName">{{city}}</view>
+  <!--<view class="hotcity-common thisCity">当前选择城市</view>
+  <view class="thisCityName">{{city}}</view>-->
   <view>
     <text class="hotcity hotcity-common">热门城市</text>
     <view class="weui-grids">

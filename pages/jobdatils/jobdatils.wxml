@@ -1,5 +1,6 @@
 <view class="all" style="width:{{width}}px;height:{{height}}px;background-size:100%;">
- 
+ <loading hidden="{{hiddenLoading}}">正在加载</loading>
+
  <view class="_head">
      <text class="_head_title">{{dataDatils.positionText}}</text>
      <view class="_head_price" wx:if="{{dataDatils.salaryText == '面议' || dataDatils.salaryText==''}}">{{dataDatils.salaryText}}</view>
@@ -7,14 +8,14 @@
      </view>
      <view class="middleline">
     <view class="middle_view" >
-            <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
+            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> {{dataDatils.jobExperienceText}}</view>
             </view>
           
         </view>
  <view class="middle_view" >
-            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
+            <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> {{dataDatils.degreeText}} </view>
             </view>
@@ -83,7 +84,7 @@
 
            <!--工作地点 start -->  
           <view class="renzhi" >
-            <view class="weui_cell_hd"><image src="/images/zhiwei.png"></image></view>
+            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
             <view class="weui_cell_bd">
                 <view class="renzhiyaoqiu"> 工作地点 </view>
             </view>
@@ -92,7 +93,7 @@
             <view class="bottom_textview5">{{dataDatils.regionText}}{{dataDatils.districtText}}</view>
          <!--工作地点 end-->   
 
-     <view class ="addbutn" bindtap="applypos" wx:if="{{isapply == false}}">
+     <view class ="addbutn" bindtap="applyPostion" wx:if="{{dataDatils.isApply == 0}}">
 
     <view class="add">申请职位</view>
   

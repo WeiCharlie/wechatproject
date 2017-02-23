@@ -1,31 +1,15 @@
-<!--index.wxml-->
-<view class="container">
+<view class="viewback">
   <view class="phoneNumberInput">
-    <view class="phoneLabelBG">
-        <view class="phoneLabel">手机号</view>
+    <input class="phoneInput" placeholder="请输入手机号" type="number" maxlength="11" bindinput="bindPhoneInput" />
+    <button class="getSecurityCode" type="default" plain="true" disabled="{{disabled}}" bindtap="SendSecurityCode" style="border:1px solid #eee;"> {{second}} </button>
+  </view>
+  <view class="phoneNumberInput" style="border-bottom:none;">
+    <view class="securityLabelBG">
+      <view class="securityLabel">验证码</view>
     </view>
-    <view class="phoneInputBG">
-      <input class="phoneInput" placeholder="请输入手机号" type=" number" maxlength="11" bindinput="bindPhoneInput"/>
-    </view>
-    <view class="getSecurityCodeBG">
-      <button class="getSecurityCode" type="default" plain="true"  
-        disabled="{{disabled}}" bindtap="SendSecurityCode" > {{second}} </button>
+    <view class="securityInputBG">
+      <input class="securityInput" placeholder="请输入验证码" type=" number" maxlength="6" bindinput="bindSecurityCodeInput" />
     </view>
   </view>
-
-  <view class="securityCodeInput">
-   <view class="securityLabelBG">
-     <view class="securityLabel">验证码</view>
-   </view>
-
-   <view class="securityInputBG">
-      <input class="securityInput" placeholder="请输入验证码" type=" number" maxlength="6" bindinput="bindSecurityCodeInput"/>
-   </view>
-
-  </view>
-  
 </view>
-
- <button class="loginBtn"bindtap="Login" type="primary" loading="{{loading}}" >{{loginNotice}}</button>
-
-
+<button class="loginBtn" bindtap="Login" type="primary" loading="{{loading}}">{{loginNotice}}</button>

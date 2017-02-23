@@ -12,8 +12,6 @@
     "pages/login/login",
     "pages/resume/edit",
     "pages/resume/information",
-    "pages/resume/job_intention",
-    "pages/resume/work_experience",
     "pages/resume/personal_evaluation",
     "pages/myjob/myjob",
     "pages/edubj/edubj",
@@ -26,7 +24,8 @@
     "pages/addedu/addedu",
     "pages/companydatil/companydatil",
     "pages/resume/detail",
-    "pages/switchcity/switchcity"
+    "pages/switchcity/switchcity",
+    "pages/selectIndustry/selectIndustry"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -38,7 +37,7 @@
   ,
   "tabBar": {
     "color": "#a9b7b7",
-     "selectedColor": "#11cd6e",
+     "selectedColor": "#39bfb2",
      "borderStyle": "white",
     "list": [{
       "pagePath": "pages/index/index",

@@ -1,0 +1,13 @@
+<!--pages/selectIndustry/selectIndustry.wxml-->
+<view class="change">
+    {{selectIndustry}}
+</view>
+<view wx:for="{{industrys}}" wx:key="item" class="top">
+    <view class="oneindus">{{item.name}}</view>
+    <view wx:for="{{item.sub}}" wx:key="item">
+        <view class="twoindus">{{item.name}}</view>
+        <view wx:for="{{item.sub}}" wx:key="item">
+            <view class="threeindus" bindtap="checkboxChange" data-id="{{item.code}}" data-name="{{item.name}}">{{item.name}}</view>
+        </view>
+    </view>
+</view>

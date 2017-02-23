@@ -1,0 +1,32 @@
+/* pages/selectIndustry/selectIndustry.wxss */
+page{
+    font-size:14px;
+}
+.change {
+    background: #fff;
+    padding:10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+.top{
+    margin-top:20px;
+}
+.oneindus{
+    background: #39bfb2;
+    height: 40px;
+    line-height: 40px;
+    padding:0 5px;
+}
+.twoindus{
+    padding-left:20px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom:1px solid #eee;
+}
+.threeindus{
+    padding-left:40px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom:1px solid #eee;
+}

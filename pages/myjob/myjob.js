@@ -5,12 +5,13 @@ var app = getApp();
 var path=app.getpath+'/UserInfo/selectUserApplyEPositionByPage';
 var page=1;
 var pagesize=10;
+var uid='';
 console.log(path);
 var getMoreList=function(that){
  wx.request({
         url: path,
         data: {
-          uid:5,
+          uid:uid,
           page:page,
           pagesize:pagesize
         },
@@ -20,10 +21,13 @@ var getMoreList=function(that){
         success: function(res){
           // success
           // console.log(res.data.result)
-          if(res.data.result.length <10){
-              that.setData({hasMore:false});
+          if(res.data.result!=null || res.data.result.length <10){
+              that.setData({
+                hasMore:false,
+                showText:true});
           }else{
-              that.setData({hasMore:true});
+              that.setData({hasMore:true,
+              showText:false});
           }
           that.setData({newsList:res.data.result});
         that.setData({hidden:false});
@@ -34,6 +38,7 @@ var getMoreList=function(that){
         },
         complete: function() {
           // complete
+           that.setData({hiddenLoading:true});
         }
       })
 };
@@ -42,9 +47,10 @@ Page({
    
       newsList:[],
   hidden:false,
-  hasMore:true,
-     hasRefesh:false,
-  
+  hasMore:false,
+   hasRefesh:false,
+  hiddenLoading:false,
+  showText:false,
   },
    onLoad: function () {  
       //onload 进入页面加载
@@ -56,10 +62,23 @@ Page({
         }
       }),
      that.setData({hidden:false});
-     getMoreList(that);
+    
      
    },
-  
+  onShow: function (e) {
+ 
+    var that = this
+     var user = wx.getStorageSync('User');
+    if (user == null || user == "") {
+      uid = 0;
+    } else {
+      uid = user.uid;
+    }
+
+    page=1;
+    // 页面显示
+   getMoreList(that);
+  },
     onPullDownRefresh: function () {
         // do somthing
     
@@ -99,7 +118,7 @@ Page({
            }
           
         
-          if(res.data.result.length <10){
+          if(res.data.result==null ||res.data.result.length <10){
             that.setData({
               hasMore :false,
               hasRefesh:false

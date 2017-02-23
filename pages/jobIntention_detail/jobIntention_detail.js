@@ -120,7 +120,7 @@ Page({
 
         for(var b of res){
 
-          arr2.push(b.dictRemark)
+          arr2.push(b.dictValue)
         }
         that.setData({
 
@@ -412,12 +412,21 @@ Page({
 
   checkShow : function(e){
 
+      var model = this.data.jobModel
+        model.isShow =  !this.data.checked
 
+        
       this.setData({
 
-        checked : !this.data.checked
+        checked : !this.data.checked,
+        jobModel: model
 
       })
+
+  },
+  saveJobIntention : function(e){
+
+    console.log(this.data);
 
   },
 
@@ -490,7 +499,6 @@ Page({
              that.setData({
                 jobModel : model
 
-          
         })
 
   },

@@ -1,26 +1,46 @@
-<view  >
+<scroll-view scroll-y="false">
   <view  bindtap="bindViewTap" class="userinfo" style="width:{{width}}px;height:{{height/4}}px;background-size:100%;background-repeat:space">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-     <text class="usName">{{userInfo.nickName}}</text>
-     <!--<text class="usRegin" wx:if="{{userInfo.gender ==1}}">{{userInfo.province}}{{userInfo.city}}/男</text>
-      <text class="usRegin" wx:else>{{userInfo.province}}{{userInfo.city}}/女</text>-->
+    <image wx:if="{{img =='' || img ==null}}" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <image wx:else class="userinfo-avatar" src="{{img}}" background-size="cover"></image>
+    
+     <text class="usName" wx:if="{{ uname == '' || uname==null}}">{{userInfo.nickName}}</text>
+     <text class="usName" wx:else>{{uname}}</text>
   </view>
  
-  <view class="info_list">
-    <block wx:for="{{userListInfo}}" wx:for-index="index">
-    
-    <navigator url="{{item.link}}">
-        <view class="weui_cell" id="{{index}}">
-            <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
+        <view class="weui_cell" bindtap="resumeclass">
+            <view class="weui_cell_hd"><image src="/images/myorder.png"></image></view>
             <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> {{item.text}} </view>
+                <view class="weui_cell_bd_p"> 简历预览</view>
             </view>
             
-            <image class="with_arrow" src="{{rightimg}}"></image>
+            <image class="with_arrow" src="/images/jian_r.png"></image>
         </view>
-        </navigator>
-    </block>
-  </view>
-</view>
+       
+         <view class="weui_cell" bindtap="resumeeditclass">
+            <view class="weui_cell_hd"><image src="/images/myresume.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 简历编辑</view>
+            </view>
+            
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+        </view>
+          <view class="weui_cell" bindtap="jobclass">
+            <view class="weui_cell_hd"><image src="/images/tabtwo2.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 我的求职</view>
+            </view>
+            
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+        </view>
+          <view class="weui_cell" bindtap="aboutclass">
+            <view class="weui_cell_hd"><image src="/images/myhelp.png"></image></view>
+            <view class="weui_cell_bd">
+                <view class="weui_cell_bd_p"> 关于我们</view>
+            </view>
+            
+            <image class="with_arrow" src="/images/jian_r.png"></image>
+        </view>
+   
+</scroll-view>
 
   
