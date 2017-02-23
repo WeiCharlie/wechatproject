@@ -16,23 +16,30 @@ var getMoreList=function(that){
          jobPlace: that.data.adressid
         },
         header:'application/Json',
-        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        // header: {}, // 设置请求的 header
+        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    header: {'Content-Type': 'application/x-www-form-urlencoded'},
         success: function(res){
           // success
-          // console.log(res.data.result)
-          if(res.data.result!=null){
-var len=  res.data.result.length;
-        if(len<10){
-  that.setData({hasMore:false});
-        }else{
- that.setData({hasMore:true});
-        }
-          that.setData({newsList:res.data.result});
-            that.setData({hidden:false});
+          console.log("联网"+res.data.result);
+
+ if(res.data.result !=null && res.data.result.length>9){
+            
+            that.setData({
+            hasMore:true,
+            showText:false
+            });
+             
           }else{
-  that.setData({hasMore:false});
+             that.setData({
+            showText:true,
+            hasMore:false
+            });
+             
           }
+
+            that.setData({hidden:false,
+            newsList:res.data.result});
+          
         
         
         
@@ -43,6 +50,7 @@ var len=  res.data.result.length;
         },
         complete: function() {
           // complete
+           that.setData({hiddenLoading:true});
         }
       })
 };
@@ -50,8 +58,10 @@ Page({
   data: {
  focus:false,
       newsList:[],
+        hiddenLoading:false,
   hidden:false,
-  hasMore:true,
+ hasMore:false,
+  showText:false,
      hasRefesh:false,
      adress:'北京市',
      adressid:'101',
@@ -82,8 +92,12 @@ onShow: function () {
   
     that.setData({
   adress:Ndress,
-  adressid:Nid
+  adressid:Nid,
+   inputVal: "",
+   inputShowed: false
     });
+     key='';
+     page=1;
 getMoreList(that);
   },
     onReachBottom:function(){
@@ -110,10 +124,13 @@ getMoreList(that);
             list.push(res.data.result[i]);
           }
           that.setData({newsList :list});
+      
+
           if(res.data.result.length <10){
             that.setData({
               hasMore :false,
-              hasRefesh:false
+              hasRefesh:false,
+              showText:true
             });
           }
         
@@ -124,6 +141,7 @@ getMoreList(that);
         },
         complete: function() {
           // complete
+             
         }
       })
 
@@ -132,20 +150,7 @@ getMoreList(that);
     searchinput:function(e){
 that.setData({searchData:e.detail.value})
     },
-    bind:function(){
-       wx.showToast({
-  title: '不要乱点，我还没做那',
-  icon: 'success',
-  duration: 2000
-    })
-    },
-    searchSubmit: function(e) {
-        wx.showToast({
-  title: '不要乱点，我还没做那',
-  icon: 'success',
-  duration: 2000
-    })
-    },
+  
      showInput: function () {
         this.setData({
             inputShowed: true
@@ -158,10 +163,13 @@ that.setData({searchData:e.detail.value})
         });
     },
     clearInput: function () {
-        this.setData({
+      var that=this
+      key='';
+        that.setData({
             inputVal: "",
             inputShowed: false
         });
+        getMoreList(that);
     },
     inputTyping: function (e) {
         this.setData({

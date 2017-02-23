@@ -1,6 +1,6 @@
 <view style="backgroud-color:#f3f4f8;">
 
-
+ 
 
  <!--搜索框 start -->
  <view class="serachview">
@@ -49,14 +49,14 @@
      </view>
      <view class="middle">
     <view class="middle_view" >
-            <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
+            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> {{cityText}}{{districtText}} </view>
             </view>
           
         </view>
  <view class="middle_view" >
-            <view class="weui_cell_hd"><image src="/images/btn_dingwei.png"></image></view>
+            <view class="weui_cell_hd"><image src="/images/btn_degree.png"></image></view>
             <view class="weui_cell_bd">
                 <view class="weui_cell_bd_p"> {{jobExperienceText}} </view>
             </view>
@@ -105,6 +105,7 @@
     
     <!--列表 循环 end-->
 
+ <loading hidden="{{hiddenLoading}}">正在加载</loading>
      <view class="tips1">
       <view wx:if="{{hasMore}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
  <view class="weui-loading"></view>
@@ -112,7 +113,7 @@
         </view>
 
       
-      <view wx:else><text class="weui-loadmore__tips">没有相应职位</text></view>
+       <view wx:if="{{showText}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;"><text>没有更多职位了</text></view>
     </view>
 </view>
 </view>
